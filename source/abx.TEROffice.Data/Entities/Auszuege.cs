@@ -5,9 +5,6 @@ using System.Xml.Serialization;
 
 namespace abx.TEROffice.Data.Entities
 {
-
-
-
     [XmlRoot("AUSZUEGE",Namespace = "http://www.nundw.ch/terrisxml01",IsNullable = false)]
     public class Auszuege
     {

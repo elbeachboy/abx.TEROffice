@@ -25,6 +25,9 @@ namespace abx.TEROffice.Data.Entities.Common.Recht
 
         [XmlElement("ST")]
         public virtual string Status { get; set; }
+
+        [XmlElement("LITERA")]
+        public virtual string Litera { get; set; }
         
         [XmlElement("LRLR")]
         public virtual string LastOderRecht { get; set; }
