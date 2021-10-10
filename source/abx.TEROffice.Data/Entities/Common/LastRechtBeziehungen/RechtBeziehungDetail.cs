@@ -15,14 +15,20 @@ namespace abx.TEROffice.Data.Entities.Common.LastRechtBeziehungen
         [XmlElement("GROL")]
         public string GROL { get; set; }
 
+        [XmlElement("FAUST")]
+        public string Faustpfandgläubiger { get; set; }
+
         [XmlElement("GDTX")]
         public string Gründungsdatum_Unformatiert { get; set; }
 
         [XmlElement("GNR")]
         public string Gründungsnummer { get; set; }
 
+        [XmlElement("LDT")]
+        public string Löschdatum { get; set; }
+
         [XmlElement("LNR")]
-        public string LNR { get; set; }
+        public string Löschnummer { get; set; }
 
         [XmlElement("PERSON")]
         public Person Person { get; set; }

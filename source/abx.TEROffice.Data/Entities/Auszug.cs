@@ -5,8 +5,10 @@ using System.Xml.Serialization;
 using abx.TEROffice.Data.Entities.Amk;
 using abx.TEROffice.Data.Entities.Dbk;
 using abx.TEROffice.Data.Entities.Eig;
+using abx.TEROffice.Data.Entities.Gpf;
 using abx.TEROffice.Data.Entities.Gru;
 using abx.TEROffice.Data.Entities.Vmk;
+
 
 namespace abx.TEROffice.Data.Entities
 {
@@ -41,6 +43,9 @@ namespace abx.TEROffice.Data.Entities
 
         [XmlElement("VMK")]
         public VormerkungUebersicht Vormerkung { get; set; }
+
+        [XmlElement("GPF")]
+        public GrundpfandrechtUebersicht Grundpfandrecht { get; set; }
         
     }
 }

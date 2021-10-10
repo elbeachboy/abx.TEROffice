@@ -18,8 +18,8 @@ namespace abx.TEROffice.Data.Entities.Common.Personen
         public int Niveau { get; set; }
 
         [XmlElement("INHOCC")]
-        public PersonDetail PersonDetail { get; set; }
-
+        public List<PersonDetail> PersonDetail { get; set; }
+        
         [XmlElement("STRASSE")]
         public string Strasse { get; set; }
 
