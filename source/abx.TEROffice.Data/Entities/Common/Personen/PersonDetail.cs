@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Text;
 using System.Xml.Serialization;
 
-namespace abx.TEROffice.Data.Entities.Eig
+namespace abx.TEROffice.Data.Entities.Common.Auszug.Person
 {
    public class PersonDetail
     {

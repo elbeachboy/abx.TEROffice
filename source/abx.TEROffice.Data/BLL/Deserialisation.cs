@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.Design;
 using System.IO;
 using System.Text;
 using System.Xml.Serialization;
@@ -11,20 +12,32 @@ namespace abx.TEROffice.Data.BLL
     public class Deserialisation : IDeserialisation
     {
         private string _xmlFilePath;
-        
 
         public Deserialisation(string xmlFilePath)
         {
             _xmlFilePath = xmlFilePath;
         }
 
-        public void Deserialisieren()
+        public Auszuege ErstelleAuszugObjekt()
         {
-
-            var serializer = new XmlSerializer(typeof(Auszuege));
             StreamReader reader = new StreamReader(_xmlFilePath);
-            var auszuege = (Auszuege)serializer.Deserialize(reader);
-            reader.Close();
+            try
+            {
+                var serializer = new XmlSerializer(typeof(Auszuege));
+                var auszug = (Auszuege)serializer.Deserialize(reader);
+                return auszug;
+            }
+            catch (Exception e)
+            {
+                throw;
+            }
+            finally
+            {
+                reader.Close();
+            }
+           
+            
+            
         }
     }
 }

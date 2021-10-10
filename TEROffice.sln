@@ -9,7 +9,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "source", "source", "{1A03F3
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "test", "test", "{37340353-B4E1-4384-B6E1-911D4D0AB4A8}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "abx.TEROffice.test", "test\abx.TEROffice.test\abx.TEROffice.test.csproj", "{D745D353-8957-4BB3-8CEF-69DDAA1F6DBE}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "abx.TEROffice.test", "test\abx.TEROffice.test\abx.TEROffice.test.csproj", "{D745D353-8957-4BB3-8CEF-69DDAA1F6DBE}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

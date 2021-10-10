@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Text;
 using System.Xml.Serialization;
 using abx.TEROffice.Data.Entities.Bel;
+using abx.TEROffice.Data.Entities.Common.Personen;
 
 namespace abx.TEROffice.Data.Entities.Eig
 {

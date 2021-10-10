@@ -2,8 +2,11 @@
 using System.Collections.Generic;
 using System.Text;
 using System.Xml.Serialization;
+using abx.TEROffice.Data.Entities.Amk;
+using abx.TEROffice.Data.Entities.Dbk;
 using abx.TEROffice.Data.Entities.Eig;
 using abx.TEROffice.Data.Entities.Gru;
+using abx.TEROffice.Data.Entities.Vmk;
 
 namespace abx.TEROffice.Data.Entities
 {
@@ -31,22 +34,13 @@ namespace abx.TEROffice.Data.Entities
         public EigentuemerUebersicht Eigentuemer { get; set; }
 
         [XmlElement("AMK")]
-        public Anmerkung Anmerkung { get; set; }
+        public AnmerkungUebersicht Anmerkung { get; set; }
 
         [XmlElement("DBK")]
-        public Dienstbarkeit Dienstbarkeit { get; set; }
-
-        [XmlElement("GPF")]
-        public Grundpfandrecht Grundpfandrecht { get; set; }
+        public DienstbarkeitUebersicht Dienstbarkeit { get; set; }
 
         [XmlElement("VMK")]
-        public Vormerkung Vormerkung { get; set; }
-
-        [XmlElement("RANGV")]
-        public Rangverschiebung Rangverschiebung { get; set; }
-
-        [XmlElement("BEZAUF")]
-        public BeziehungAuf BeziehungAuf { get; set; }
-
+        public VormerkungUebersicht Vormerkung { get; set; }
+        
     }
 }

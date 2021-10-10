@@ -95,3 +95,6 @@ E:\Apps\Diplomarbeit\abx.TEROffice\test\abx.TEROffice.test\obj\Debug\netcoreapp3
 E:\Apps\Diplomarbeit\abx.TEROffice\test\abx.TEROffice.test\obj\Debug\netcoreapp3.1\abx.TEROffice.test.dll
 E:\Apps\Diplomarbeit\abx.TEROffice\test\abx.TEROffice.test\obj\Debug\netcoreapp3.1\abx.TEROffice.test.pdb
 E:\Apps\Diplomarbeit\abx.TEROffice\test\abx.TEROffice.test\obj\Debug\netcoreapp3.1\abx.TEROffice.test.genruntimeconfig.cache
+E:\Apps\Diplomarbeit\abx.TEROffice\test\abx.TEROffice.test\bin\Debug\netcoreapp3.1\xunit.assert.dll
+E:\Apps\Diplomarbeit\abx.TEROffice\test\abx.TEROffice.test\bin\Debug\netcoreapp3.1\Castle.Core.dll
+E:\Apps\Diplomarbeit\abx.TEROffice\test\abx.TEROffice.test\bin\Debug\netcoreapp3.1\Moq.dll
