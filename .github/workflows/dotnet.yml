@@ -43,8 +43,8 @@ jobs:
         shell: powershell
         run: |
           .\.sonar\scanner\dotnet-sonarscanner begin /k:"elbeachboy_abx.TEROffice" /o:"elbeachboy" /d:sonar.login="${{ secrets.SONAR_TOKEN }}" /d:sonar.host.url="https://sonarcloud.io"
-              dotnet test --no-build --verbosity normal ./source
-              dotnet restore ./source
-              dotnet build --no-restore ./source
-              dotnet test --no-build --verbosity normal ./source
+              dotnet test --no-build --verbosity normal
+              dotnet restore 
+              dotnet build --no-restore 
+              dotnet test --no-build --verbosity normal 
           .\.sonar\scanner\dotnet-sonarscanner end /d:sonar.login="${{ secrets.SONAR_TOKEN }}"
