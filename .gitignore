@@ -452,3 +452,7 @@ $RECYCLE.BIN/
 !.vscode/tasks.json
 !.vscode/launch.json
 !.vscode/extensions.json
+.vs/TEROffice/DesignTimeBuild/.dtbcache.v2
+.vs/TEROffice/v16/.suo
+test/abx.TEROffice.test/obj
+source/abx.TEROffice.Data/obj

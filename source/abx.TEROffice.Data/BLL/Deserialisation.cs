@@ -1,8 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel.Design;
 using System.IO;
-using System.Text;
 using System.Xml.Serialization;
 using abx.TEROffice.Data.Entities;
 using abx.TEROffice.Data.Interfaces;
@@ -20,7 +17,7 @@ namespace abx.TEROffice.Data.BLL
 
         public Auszuege ErstelleAuszugObjekt()
         {
-            StreamReader reader = new StreamReader(_xmlFilePath);
+            StreamReader reader = LoadStreamReader();
             try
             {
                 var serializer = new XmlSerializer(typeof(Auszuege));
@@ -29,15 +26,25 @@ namespace abx.TEROffice.Data.BLL
             }
             catch (Exception e)
             {
-                throw;
+                throw new DataReaderException(e.Message);
             }
             finally
             {
                 reader.Close();
             }
-           
-            
-            
         }
+
+        private StreamReader LoadStreamReader() 
+        {
+            try 
+            {
+                return new StreamReader(_xmlFilePath); 
+            } 
+            catch (Exception e)
+            {
+
+                throw new DataReaderException(e.Message);
+            } 
+        }  
     }
 }
