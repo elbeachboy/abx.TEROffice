@@ -456,3 +456,5 @@ $RECYCLE.BIN/
 .vs/TEROffice/v16/.suo
 test/abx.TEROffice.test/obj
 source/abx.TEROffice.Data/obj
+source/abx.TEROffice.Data/bin
+test/abx.TEROffice.test/bin

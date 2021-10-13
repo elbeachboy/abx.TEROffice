@@ -15,18 +15,18 @@ namespace abx.TEROffice.Data.BLL
             _xmlFilePath = xmlFilePath;
         }
 
-        public Auszuege ErstelleAuszugObjekt()
+        public Auszuege CreateAuszugObjekt()
         {
             StreamReader reader = LoadStreamReader();
+            XmlSerializer serializer = LoadXmlSerializer();
             try
             {
-                var serializer = new XmlSerializer(typeof(Auszuege));
                 var auszug = (Auszuege)serializer.Deserialize(reader);
                 return auszug;
             }
             catch (Exception e)
             {
-                throw new DataReaderException(e.Message);
+                throw new DataReaderException(e.InnerException.Message);
             }
             finally
             {
@@ -45,6 +45,20 @@ namespace abx.TEROffice.Data.BLL
 
                 throw new DataReaderException(e.Message);
             } 
-        }  
+        }
+
+        private XmlSerializer LoadXmlSerializer() 
+        {
+            try 
+            {
+                return new XmlSerializer(typeof(Auszuege));
+            } 
+            catch (Exception e)
+            {
+
+                throw new DataReaderException(e.Message);
+            } 
+        }
+
     }
 }

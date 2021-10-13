@@ -26,14 +26,7 @@ namespace abx.TEROffice.test
         {
             _deserialisation = new Deserialisation(_testFilePath);
         }
-
-        [Fact]
-        public void test()
-        {
-            var auszug =_deserialisation.ErstelleAuszugObjekt();
-            Assert.Equal(auszug.Benutzername,_kontrollAuszug.Benutzername);
-        }
-
+        
         [Fact]
         public void isdeserialzeSuccesful()
         {
