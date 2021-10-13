@@ -30,7 +30,7 @@ namespace abx.TEROffice.test
         [Fact]
         public void isdeserialzeSuccesful()
         {
-            var auszug =_deserialisation.ErstelleAuszugObjekt();
+            var auszug =_deserialisation.CreateAuszugObjekt();
             Assert.Equal(auszug.Benutzername,_kontrollAuszug.Benutzername);
         }
     }
