@@ -7,6 +7,6 @@ namespace abx.TEROffice.Data.Interfaces
 {
     public interface IDeserialisation
     {
-        Auszuege CreateAuszugObjekt();
+        Auszuege CreateAuszugObjekt(string xmlFilePath);
     }
 }

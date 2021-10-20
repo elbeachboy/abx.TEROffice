@@ -3,21 +3,16 @@ using System.IO;
 using System.Xml.Serialization;
 using abx.TEROffice.Data.Entities;
 using abx.TEROffice.Data.Interfaces;
+using abx.TEROFfice.Library;
 
 namespace abx.TEROffice.Data.BLL
 {
     public class Deserialisation : IDeserialisation
     {
-        private string _xmlFilePath;
-
-        public Deserialisation(string xmlFilePath)
+        
+        public Auszuege CreateAuszugObjekt(string xmlFilePath)
         {
-            _xmlFilePath = xmlFilePath;
-        }
-
-        public Auszuege CreateAuszugObjekt()
-        {
-            StreamReader reader = LoadStreamReader();
+            StreamReader reader = LoadStreamReader(xmlFilePath);
             XmlSerializer serializer = LoadXmlSerializer();
             try
             {
@@ -26,7 +21,7 @@ namespace abx.TEROffice.Data.BLL
             }
             catch (Exception e)
             {
-                throw new DataReaderException(e.InnerException.Message);
+                throw new TERofficeException(e.Message);
             }
             finally
             {
@@ -34,16 +29,16 @@ namespace abx.TEROffice.Data.BLL
             }
         }
 
-        private StreamReader LoadStreamReader() 
+        private StreamReader LoadStreamReader(string xmlFilePath) 
         {
             try 
             {
-                return new StreamReader(_xmlFilePath); 
+                return new StreamReader(xmlFilePath); 
             } 
             catch (Exception e)
             {
 
-                throw new DataReaderException(e.Message);
+                throw new TERofficeException("Sourcefile von TERRIS nicht vorhanden.");
             } 
         }
 
@@ -56,9 +51,11 @@ namespace abx.TEROffice.Data.BLL
             catch (Exception e)
             {
 
-                throw new DataReaderException(e.Message);
+                throw new TERofficeException(e.Message);
             } 
         }
+
+        public string DataFilePath { get; set; }
 
     }
 }
