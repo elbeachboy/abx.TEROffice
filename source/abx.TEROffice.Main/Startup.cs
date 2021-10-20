@@ -1,12 +1,18 @@
 
+using Microsoft.Extensions.DependencyInjection;
 using System;
 using System.Linq;
 using System.Windows.Forms;
+using abx.TEROffice.Data.BLL;
+using abx.TEROffice.Data.Interfaces;
+using abx.TEROFfice.Library;
+using abx.TEROFfice.Library.Interfaces;
 
 namespace abx.TEROffice.Main
 {
     static class Startup
     {
+        public static IServiceProvider _serviceProvider { get; set; }
         /// <summary>
         ///  The main entry point for the application.
         /// </summary>
@@ -24,7 +30,16 @@ namespace abx.TEROffice.Main
             Application.SetHighDpiMode(HighDpiMode.SystemAware);
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new MainForm());
+            ConfigureServices();
+            Application.Run(new MainForm(wordTemplate,dataFileName,type,parameters,args));
+        }
+
+        private static void ConfigureServices()
+        {
+            var services = new ServiceCollection();
+            services.AddSingleton<IDeserialisation, Deserialisation>();
+            services.AddSingleton<ILibrary, Library>();
+            _serviceProvider = services.BuildServiceProvider();
         }
     }
 }
