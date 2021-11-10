@@ -55,7 +55,5 @@ namespace abx.TEROffice.Data.BLL
             } 
         }
 
-        public string DataFilePath { get; set; }
-
     }
 }

@@ -13,7 +13,13 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "abx.TEROffice.test", "test\
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "abx.TEROffice.Main", "source\abx.TEROffice.Main\abx.TEROffice.Main.csproj", "{FC5E526B-1C7B-48F8-AA58-289D40C56A46}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "abx.TEROFfice.Library", "source\abx.TEROFfice.Library\abx.TEROFfice.Library.csproj", "{64A278C0-1175-4E20-84AA-429F54C21F66}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "abx.TEROFfice.Library", "source\abx.TEROFfice.Library\abx.TEROFfice.Library.csproj", "{64A278C0-1175-4E20-84AA-429F54C21F66}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "abx.TEROffice.WordGenerator", "source\abx.TEROffice.WordGenerator\abx.TEROffice.WordGenerator.csproj", "{5E3BD2E8-C486-4143-A553-31B52CCB1A75}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "abx.TEROffice.Grundbuchauszug", "source\abx.TEROffice.Grundbuchauszug\abx.TEROffice.Grundbuchauszug.csproj", "{61F3A81B-1C2E-4183-83A4-90B6888008C5}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "abx.TEROffice.Korrespondenz", "source\abx.TEROffice.Korrespondenz\abx.TEROffice.Korrespondenz.csproj", "{4D7A31B4-72C6-4C17-8B11-054C2E7AB446}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -37,6 +43,18 @@ Global
 		{64A278C0-1175-4E20-84AA-429F54C21F66}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{64A278C0-1175-4E20-84AA-429F54C21F66}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{64A278C0-1175-4E20-84AA-429F54C21F66}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5E3BD2E8-C486-4143-A553-31B52CCB1A75}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5E3BD2E8-C486-4143-A553-31B52CCB1A75}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5E3BD2E8-C486-4143-A553-31B52CCB1A75}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5E3BD2E8-C486-4143-A553-31B52CCB1A75}.Release|Any CPU.Build.0 = Release|Any CPU
+		{61F3A81B-1C2E-4183-83A4-90B6888008C5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{61F3A81B-1C2E-4183-83A4-90B6888008C5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{61F3A81B-1C2E-4183-83A4-90B6888008C5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{61F3A81B-1C2E-4183-83A4-90B6888008C5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4D7A31B4-72C6-4C17-8B11-054C2E7AB446}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4D7A31B4-72C6-4C17-8B11-054C2E7AB446}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4D7A31B4-72C6-4C17-8B11-054C2E7AB446}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4D7A31B4-72C6-4C17-8B11-054C2E7AB446}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -46,6 +64,9 @@ Global
 		{D745D353-8957-4BB3-8CEF-69DDAA1F6DBE} = {37340353-B4E1-4384-B6E1-911D4D0AB4A8}
 		{FC5E526B-1C7B-48F8-AA58-289D40C56A46} = {1A03F3A6-45C8-49C3-A4EB-8F44748BBCF1}
 		{64A278C0-1175-4E20-84AA-429F54C21F66} = {1A03F3A6-45C8-49C3-A4EB-8F44748BBCF1}
+		{5E3BD2E8-C486-4143-A553-31B52CCB1A75} = {1A03F3A6-45C8-49C3-A4EB-8F44748BBCF1}
+		{61F3A81B-1C2E-4183-83A4-90B6888008C5} = {1A03F3A6-45C8-49C3-A4EB-8F44748BBCF1}
+		{4D7A31B4-72C6-4C17-8B11-054C2E7AB446} = {1A03F3A6-45C8-49C3-A4EB-8F44748BBCF1}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {CF343375-0847-47A3-A3F5-29D2CE6C47DD}
