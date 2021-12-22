@@ -1,38 +1,44 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Configuration;
+using System.IO;
+using System.Reflection;
 using System.Windows.Forms;
-using abx.TEROffice.Data.Interfaces;
-using abx.TEROFfice.Library.Interfaces;
+using abx.TEROffice.DataReader.BLL;
+using abx.TEROffice.Manager.Helpers;
+using abx.TEROffice.WordGenerator;
+using abx.TEROffice.WordGenerator.Interfaces;
+using abx.TEROffice.WordGenerator.Strategies;
+using log4net;
 
 namespace abx.TEROffice.Main
 {
     public partial class MainForm : Form
     {
-        private readonly IDeserialisation _deserialisation;
-        private readonly ILibrary _library;
+        private Data _dataReader = new Data();
+        private Helper _helper = new Helper();
+        private Context _context = new Context();
         public MainForm(string wordTemplate, string dataFileName, string type, List<String> parameters, string[] args)
         {
+
+            
+
             try
             {
                 InitializeComponent();
-                _deserialisation = (IDeserialisation)Startup._serviceProvider.GetService(typeof(IDeserialisation));
-                _library = (ILibrary)Startup._serviceProvider.GetService(typeof(ILibrary));
-
-
-                var pathHelper = _library.PathHelper(dataFileName,dataFileName,wordTemplate);
+                if (type == "Auszug")
+                {
+                    var dbks =_dataReader.GetDienstbarkeiten(_helper.GetDataFilePath() + dataFileName);
+                    _context.SetStrategy(new SaveAuszugStrategy());
+                    _context.SaveWord();
+                }
                
-                var auszug = _deserialisation.CreateAuszugObjekt(pathHelper.DataFilePath);
-
-
             }
             catch (Exception e)
             {
-                _library.ExceptionHelper().HandleException(e,args);
-                Application.Exit();
+
             }
-            
+
         }
-
-
     }
 }
