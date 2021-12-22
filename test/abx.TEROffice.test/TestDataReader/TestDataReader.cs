@@ -8,7 +8,6 @@ namespace abx.TEROffice.test.TestDataReader
     {
         private Data _data = new Data();
         private const string _testFilePath = @"E:\Apps\Diplomarbeit\abx.TEROffice\test\abx.TEROffice.test\Testfiles\msg_5216083_2021-10-06-11-40-40.xml";
-        private const string _corruptFIlePath = @"E:\blubbedi\Diplomarbeit\abx.TEROffice\test\abx.TEROffice.test\Testfiles\msg_5216083_2021-10-06-11-40-40.xml";
 
         private Dienstbarkeit dbk = new Dienstbarkeit
         {
