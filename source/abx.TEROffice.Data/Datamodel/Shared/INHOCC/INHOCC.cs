@@ -1,6 +1,9 @@
-﻿using System.Xml.Serialization;
+﻿using System;
+using System.Collections.Generic;
+using System.Text;
+using System.Xml.Serialization;
 
-namespace abx.TEROffice.DataReader.Datamodel.AUSZUG.DBK
+namespace abx.TEROffice.DataReader.Datamodel.Shared.INHOCC
 {
     public class INHOCC
     {
@@ -33,7 +36,7 @@ namespace abx.TEROffice.DataReader.Datamodel.AUSZUG.DBK
 
         [XmlElement("BETR")]
         public string BETR { get; set; }
-        
+
         [XmlElement("TYP")]
         public string TYP { get; set; }
 
@@ -45,6 +48,9 @@ namespace abx.TEROffice.DataReader.Datamodel.AUSZUG.DBK
 
         [XmlElement("RUFNAME")]
         public string RUFNAME { get; set; }
+
+        [XmlElement("NATIOTXT")]
+        public string NATIOTXT { get; set; }
 
         [XmlElement("GDAT")]
         public string GDAT { get; set; }

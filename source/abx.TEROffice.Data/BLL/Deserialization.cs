@@ -7,7 +7,7 @@ using abx.TEROffice.DataReader.Datamodel;
 
 namespace abx.TEROffice.DataReader.BLL
 {
-    public class Deserialisation
+    public class Deserialization
     {
         
         public TERAuszuege DeserializeXml(string xmlFilePath)

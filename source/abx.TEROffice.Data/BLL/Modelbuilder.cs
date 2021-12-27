@@ -1,23 +1,39 @@
 ﻿
 
 using System.Collections.Generic;
+using abx.TEROffice.DataReader.Businessmodel;
 using abx.TEROffice.DataReader.Businessmodel.Dienstbarkeiten;
+using abx.TEROffice.DataReader.Datamodel;
 using abx.TEROffice.DataReader.Datamodel.AUSZUG.DBK;
 using abx.TEROffice.DataReader.Datamodel.AUSZUG.GRU;
-using abx.TEROffice.DataReader.Datamodel.Shared.AUSZUG.BEZ;
-using abx.TEROffice.DataReader.Datamodel.Shared.AUSZUG.PERSON;
+using abx.TEROffice.DataReader.Datamodel.Shared.BEZ;
+using abx.TEROffice.DataReader.Datamodel.Shared.PERSON;
 
 namespace abx.TEROffice.DataReader.BLL
 {
     public class Modelbuilder
     {
-        public List<Dienstbarkeit> FillModel(List<LROCC> listOfLroccs)
+        public Grundbuchauszug FillModel(TERAuszug auszug)
         {
+            var grundbuchauszug = new Grundbuchauszug();
+            grundbuchauszug.Grundstueck = new Grundstück
+            {
+                Status = auszug.GRU.GRUNDST.ST,
+                Status_Eigentümer = auszug.GRU.GRUNDST.ST_EIG,
+                Grundbuchnummer = auszug.GRU.GRUNDST.GRGB,
+                Grundstückid = auszug.GRU.GRUNDST.GRID,
+                Grundstückart = auszug.GRU.GRUNDST.GRART,
+                Egrid = auszug.GRU.GRUNDST.EGRID_FOR_KSA,
+                Grundbuchname = auszug.GRU.GRUNDST.GRGBTXT
+            };
+
             var listOfDienstbarkeiten = new List<Dienstbarkeit>();
-            foreach (var dbk in listOfLroccs)
+
+            foreach (var dbk in auszug.DBK.Lroccs)
             {
                 var dienstbarkeit = new Dienstbarkeit
                 {
+                    LastRechtBezeichnung = dbk.LRLR,
                     LastRechId = dbk.LRID1,
                     LastRechId2 = dbk.LRID2,
                     LastRechIdGesamt = dbk.LRIDTXT,
@@ -34,7 +50,9 @@ namespace abx.TEROffice.DataReader.BLL
                 listOfDienstbarkeiten.Add(dienstbarkeit);
             }
 
-            return listOfDienstbarkeiten;
+            grundbuchauszug.Dienstbarkeiten = listOfDienstbarkeiten;
+
+            return grundbuchauszug;
         }
 
         private List<Beziehung> FillRelation(List<BEZOCC> listOfBezoccs)
@@ -47,6 +65,7 @@ namespace abx.TEROffice.DataReader.BLL
                     Status = bez.ST,
                     Gründungsdatum = bez.GDTX,
                     Gründungsnummer = bez.GNR,
+                    Grol = bez.GROL,
                     Grundstück = FillGrundstueck(bez.GRUNDST),
                     Person = FillPerson(bez.PERSON)
                 };
@@ -68,19 +87,24 @@ namespace abx.TEROffice.DataReader.BLL
                     Typ = pers.INHOCC.TYP,
                     Name = pers.INHOCC.NAME,
                     Vorname = pers.INHOCC.VORNAME,
+                    Geburtsdatum = pers.INHOCC.GDAT,
+                    LedigName = pers.A3,
+                    Rufname = pers.INHOCC.RUFNAME,
                     Rechtsform = pers.INHOCC.RFORMTXT,
                     Sitz = pers.INHOCC.SITZ,
                     Strasse = pers.STRASSE,
                     Plz = pers.PLZ,
                     Ort = pers.ORT,
-                    Land = pers.LAND,
+                    Land = pers.LANDTXT,
+                    Laenderkürzel = pers.LAND,
+                    Nationalitaet = pers.INHOCC.NATIOTXT,
                     Geburtsort = pers.BORT
                 };
                 return person;
             }
             else
             {
-                return null;
+                return new Person();
             }
         }
 
@@ -94,6 +118,7 @@ namespace abx.TEROffice.DataReader.BLL
                     Status_Eigentümer = grundst.ST_EIG,
                     Grundbuchnummer = grundst.GRGB,
                     Grundstückid = grundst.GRID,
+                    GrundstückIdMitGrundbuch = grundst.GRIDTXT,
                     Grundstückart = grundst.GRART,
                     Egrid = grundst.EGRID_FOR_KSA,
                     Grundbuchname = grundst.GRGBTXT
@@ -103,7 +128,7 @@ namespace abx.TEROffice.DataReader.BLL
             }
             else
             {
-                return null;
+                return new Grundstück();
             }
 
 

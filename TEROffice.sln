@@ -13,7 +13,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "abx.TEROffice.test", "test\
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "abx.TEROffice.Manager", "source\abx.TEROffice.Main\abx.TEROffice.Manager.csproj", "{FC5E526B-1C7B-48F8-AA58-289D40C56A46}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "abx.TEROffice.Grundbuchauszug", "source\abx.TEROffice.Grundbuchauszug\abx.TEROffice.Grundbuchauszug.csproj", "{61F3A81B-1C2E-4183-83A4-90B6888008C5}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "abx.TEROffice.DocumentProcessing", "source\abx.TEROffice.Grundbuchauszug\abx.TEROffice.DocumentProcessing.csproj", "{61F3A81B-1C2E-4183-83A4-90B6888008C5}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "abx.TEROffice.WordGenerator", "source\abx.TEROffice.WordGenerator\abx.TEROffice.WordGenerator.csproj", "{14CB42DE-9FF2-432D-9E43-FDD5F1B04F2E}"
 EndProject

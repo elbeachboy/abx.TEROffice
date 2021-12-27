@@ -2,7 +2,7 @@
 using System.Xml.Serialization;
 using abx.TEROffice.DataReader.Datamodel.AUSZUG.DBK;
 
-namespace abx.TEROffice.DataReader.Datamodel.Shared.AUSZUG.BEZ
+namespace abx.TEROffice.DataReader.Datamodel.Shared.BEZ
 {
     public class BEZ
     {

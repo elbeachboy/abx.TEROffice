@@ -4,7 +4,7 @@ using System.Text;
 
 namespace abx.TEROffice.Manager.Exceptionhandling
 {
-    public class ProfessionalError: TerofficeException
+    public class SystemException: TerofficeException
     {
     }
 }

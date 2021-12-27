@@ -1,6 +1,7 @@
 ﻿
 using System.Xml.Serialization;
-using abx.TEROffice.DataReader.Datamodel.Shared.AUSZUG.BEZ;
+using abx.TEROffice.DataReader.Datamodel.Shared.BEZ;
+using abx.TEROffice.DataReader.Datamodel.Shared.INHOCC;
 
 namespace abx.TEROffice.DataReader.Datamodel.AUSZUG.DBK
 {

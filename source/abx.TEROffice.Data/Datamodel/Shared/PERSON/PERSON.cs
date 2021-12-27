@@ -2,9 +2,8 @@
 using System.Collections.Generic;
 using System.Text;
 using System.Xml.Serialization;
-using abx.TEROffice.DataReader.Datamodel.AUSZUG.DBK;
 
-namespace abx.TEROffice.DataReader.Datamodel.Shared.AUSZUG.PERSON
+namespace abx.TEROffice.DataReader.Datamodel.Shared.PERSON
 {
     public class PERSON
     {
@@ -22,6 +21,9 @@ namespace abx.TEROffice.DataReader.Datamodel.Shared.AUSZUG.PERSON
 
         [XmlElement("LAND")]
         public string LAND { get; set; }
+
+        [XmlElement("LANDTXT")]
+        public string LANDTXT { get; set; }
 
         [XmlElement("PLZ")]
         public string PLZ { get; set; }
@@ -41,8 +43,10 @@ namespace abx.TEROffice.DataReader.Datamodel.Shared.AUSZUG.PERSON
         [XmlElement("ANREDE")]
         public string ANREDE { get; set; }
 
-        [XmlElement("INHOCC")]
-        public INHOCC INHOCC { get; set; }
+        [XmlElement("A3")]
+        public string A3 { get; set; }
 
+        [XmlElement("INHOCC")]
+        public INHOCC.INHOCC INHOCC { get; set; }
     }
 }

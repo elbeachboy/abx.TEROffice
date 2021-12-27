@@ -18,6 +18,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\abx.TEROffice.Data\abx.TEROffice.DataReader.csproj" />
+    <ProjectReference Include="..\abx.TEROffice.Grundbuchauszug\abx.TEROffice.DocumentProcessing.csproj" />
     <ProjectReference Include="..\abx.TEROffice.WordGenerator\abx.TEROffice.WordGenerator.csproj" />
   </ItemGroup>
 

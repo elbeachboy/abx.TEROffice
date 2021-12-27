@@ -6,5 +6,6 @@ namespace abx.TEROffice.Manager.Exceptionhandling
 {
     public class TerofficeException : Exception
     {
+        
     }
 }

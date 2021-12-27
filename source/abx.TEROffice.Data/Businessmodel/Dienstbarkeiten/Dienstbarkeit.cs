@@ -4,6 +4,7 @@ namespace abx.TEROffice.DataReader.Businessmodel.Dienstbarkeiten
 {
     public class Dienstbarkeit
     {
+        public string LastRechtBezeichnung { get; set; }
         public string LastRechId { get; set; }
 
         public string LastRechId2 { get; set; }
@@ -38,6 +39,8 @@ namespace abx.TEROffice.DataReader.Businessmodel.Dienstbarkeiten
 
         public string Gründungsnummer { get; set; }
 
+        public string Grol { get; set; }
+
         public Person? Person { get; set; }
 
         public Grundstück? Grundstück { get; set; }
@@ -52,6 +55,8 @@ namespace abx.TEROffice.DataReader.Businessmodel.Dienstbarkeiten
         public string Grundbuchnummer { get; set; }
 
         public string Grundstückid { get; set; }
+
+        public string GrundstückIdMitGrundbuch { get; set; }
         
         public string Grundstückart { get; set; }
 
@@ -74,6 +79,12 @@ namespace abx.TEROffice.DataReader.Businessmodel.Dienstbarkeiten
 
         public string Vorname { get; set; }
 
+        public string Geburtsdatum { get; set; }
+
+        public string LedigName { get; set; }
+
+        public string Rufname { get; set; }
+
         public string Rechtsform { get; set; }
 
         public string Sitz { get; set; }
@@ -84,7 +95,11 @@ namespace abx.TEROffice.DataReader.Businessmodel.Dienstbarkeiten
 
         public string Ort { get; set; }
 
+        public string Laenderkürzel { get; set; }
+
         public string Land { get; set; }
+
+        public string Nationalitaet { get; set; }
 
         public string Geburtsort { get; set; }
     }
