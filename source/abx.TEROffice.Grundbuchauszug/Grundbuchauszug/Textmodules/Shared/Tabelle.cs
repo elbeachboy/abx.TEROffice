@@ -14,7 +14,7 @@ namespace abx.TEROffice.DocumentProcessing.Grundbuchauszug.Textmodules.Shared
         public Tabelle(DataReader.Businessmodel.Grundbuchauszug auszug)
         {
             _tabelle = new Paragraph();
-            Run run = new Run();
+            var run = new Run();
             Table table = new Table();
 
 
@@ -26,6 +26,8 @@ namespace abx.TEROffice.DocumentProcessing.Grundbuchauszug.Textmodules.Shared
             TableStyle tableStyle = new TableStyle() { Val = "Tabellenraster" };
             TableWidth tableWidth = new TableWidth() { Width = "9100", Type = TableWidthUnitValues.Dxa };
             TableLook tableLook = new TableLook() { Val = "04A0", FirstRow = true, LastRow = false, FirstColumn = true, LastColumn = false, NoHorizontalBand = false, NoVerticalBand = true };
+
+            
 
             TableBorders tableBorder = new TableBorders(); TableBorders tableBorders1 = new TableBorders();
             tableBorder.Append(new TopBorder() { Val = BorderValues.None, Color = "auto", Size = 0U, Space = 0U });
@@ -57,8 +59,8 @@ namespace abx.TEROffice.DocumentProcessing.Grundbuchauszug.Textmodules.Shared
             table.Append(tableGrid);
 
             var headerRow = new TableRow();
-            headerRow.Append(new TableCell(new Paragraph(new Run(new Text("Reg-Nr.")))));
-            headerRow.Append(new TableCell(new Paragraph(new Run(new Text("Stichwort")))));
+            headerRow.Append(new TableCell(new Paragraph(new Run(new Text("Reg-Nr.")){RunProperties = new RunProperties(new Bold())})));
+            headerRow.Append(new TableCell(new Paragraph(new Run(new Text("Stichwort")){RunProperties = new RunProperties(new Bold())})));
             tableGrid.Append(headerRow);
 
             foreach (var dbk in auszug.Dienstbarkeiten)
