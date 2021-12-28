@@ -46,7 +46,7 @@ namespace abx.TEROffice.DataReader.BLL
                     LastRechtInhaltZusatz = dbk.INHOCC.LRINH1,
                     Errichtungsdatum = dbk.INHOCC.ERIDAT,
                     Betrag = dbk.INHOCC.BETR,
-                    Beziehungen = FillRelation(dbk.BEZ.BEZOCC),
+                    Beziehungen = FillBeziehungen(dbk.BEZ.BEZOCC),
                     Belege = FillBelege(dbk.BEL.BELOCC)
                 };
                 listOfDienstbarkeiten.Add(dienstbarkeit);
@@ -57,7 +57,7 @@ namespace abx.TEROffice.DataReader.BLL
             return grundbuchauszug;
         }
 
-        private List<Beziehung> FillRelation(List<BEZOCC> listOfBezoccs)
+        private List<Beziehung> FillBeziehungen(List<BEZOCC> listOfBezoccs)
         {
             var listOfRelations = new List<Beziehung>();
             foreach (var bez in listOfBezoccs)

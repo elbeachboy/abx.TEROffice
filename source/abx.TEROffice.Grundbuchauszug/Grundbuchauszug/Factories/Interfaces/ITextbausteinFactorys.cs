@@ -7,7 +7,7 @@ using DocumentFormat.OpenXml.Wordprocessing;
 
 namespace abx.TEROffice.DocumentProcessing.Grundbuchauszug.Factories.Interfaces
 {
-    public interface ITextbausteinFactory
+    public interface ITextmoduleFactory
     {
         ITextbaustein CreateTextModule(DataReader.Businessmodel.Grundbuchauszug auszug);
     }
