@@ -1,12 +1,8 @@
-﻿
-using System.Collections.Generic;
-using abx.TEROffice.DataReader.Businessmodel.Dienstbarkeiten;
-using abx.TEROffice.DocumentProcessing.Grundbuchauszug.Textmodules.Interfaces;
-using abx.TEROffice.DocumentProcessing.Grundbuchauszug.Textmodules.Shared;
+﻿using abx.TEROffice.DocumentProcessing.Grundbuchauszug.Textbausteine.Interfaces;
+using abx.TEROffice.DocumentProcessing.Grundbuchauszug.Textbausteine.Shared;
 using DocumentFormat.OpenXml.Wordprocessing;
 
-
-namespace abx.TEROffice.DocumentProcessing.Grundbuchauszug.Textmodules
+namespace abx.TEROffice.DocumentProcessing.Grundbuchauszug.Textbausteine
 {
     public class DienstbarkeitTextbaustein : ITextbaustein
     {
@@ -15,7 +11,7 @@ namespace abx.TEROffice.DocumentProcessing.Grundbuchauszug.Textmodules
         public DienstbarkeitTextbaustein(DataReader.Businessmodel.Grundbuchauszug auszug)
         {
 
-            Tabelle tabelle = new Tabelle(auszug);
+            TabelleTextbaustein tabelle = new TabelleTextbaustein(auszug);
 
             _dienstbarkeit = tabelle.GetParagraph();
 

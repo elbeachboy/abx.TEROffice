@@ -29,6 +29,8 @@ namespace abx.TEROffice.DataReader.Businessmodel.Dienstbarkeiten
 
         public List<Beziehung> Beziehungen { get; set; }
 
+        public List<Belege> Belege { get; set; }
+
     }
 
     public class Beziehung
@@ -102,5 +104,20 @@ namespace abx.TEROffice.DataReader.Businessmodel.Dienstbarkeiten
         public string Nationalitaet { get; set; }
 
         public string Geburtsort { get; set; }
+    }
+
+    public class Belege
+    {
+        public string Status { get; set; }
+
+        public string DatumFormatUsa { get; set; }
+
+        public string DatumFormatEu { get; set; }
+        
+        public string NummerMitWhitespace { get; set; }
+
+        public string NummerOhneWhitespace { get; set; }
+
+        public string Text { get; set; }
     }
 }

@@ -4,154 +4,29 @@ using System.Linq;
 using System.Text;
 using System.Text.RegularExpressions;
 using abx.TEROffice.DataReader.Businessmodel.Dienstbarkeiten;
-using abx.TEROffice.DataReader.Datamodel.AUSZUG.DBK;
-using abx.TEROffice.DocumentProcessing.Grundbuchauszug.Textmodules.Interfaces;
+using abx.TEROffice.DocumentProcessing.Grundbuchauszug.Textbausteine.Interfaces;
 using abx.TEROffice.DocumentProcessing.Helper;
 using DocumentFormat.OpenXml;
-using DocumentFormat.OpenXml.Office.PowerPoint.Y2021.M06.Main;
 using DocumentFormat.OpenXml.Wordprocessing;
 
-namespace abx.TEROffice.DocumentProcessing.Grundbuchauszug.Textmodules.Shared
+namespace abx.TEROffice.DocumentProcessing.Grundbuchauszug.Textbausteine.Shared
 {
-    public class Zeile
+    public class ZelleTextbaustein
     {
-        private TableRow _zeile;
-        public Zeile(Dienstbarkeit dienstbarkeit, DataReader.Businessmodel.Grundbuchauszug auszug, string columnOne, string columnTwo, string columnThree)
+        private TableCell _zelle;
+        public ZelleTextbaustein(string columnwidth, int row, Dienstbarkeit dienstbarkeit, DataReader.Businessmodel.Grundbuchauszug auszug)
         {
-
-            //zeile muss irgendwie noch in Zelle aufgesplittet werden
-            _zeile = new TableRow();
-            _zeile.Append(CreateTextCell(columnOne, $"{dienstbarkeit.LastRechIdGesamt.TrimStart(' ')}: {dienstbarkeit.LastRechtBezeichnung.Replace(":", "")}"));
-            _zeile.Append(CreateTextCell(BuildRechteText(dienstbarkeit, auszug.Grundstueck.Grundbuchnummer), columnTwo));
-
-
-        }
-        private TableCell CreateTextCell(List<Paragraph> content, string width, int? colspan = null, MergedCellValues? merge = null, TableCellBorders border = null)
-        {
-            if (content.Count == 0)
+            if (row == 1)
             {
-                content.Add(new Paragraph(new Run(new Text())));
-            }
-
-            TableCell tableCell = new TableCell();
-            TableCellProperties tableCellProperties = new TableCellProperties();
-            TableCellWidth tableCellWidth = new TableCellWidth() { Width = width, Type = TableWidthUnitValues.Dxa };
-            if (border != null)
+                _zelle = CreateTextCell(columnwidth, $"{dienstbarkeit.LastRechIdGesamt.TrimStart(' ')}: {dienstbarkeit.LastRechtBezeichnung.Replace(":", "")}");
+            } else if (row == 2)
             {
-                tableCellProperties.AppendChild((TableCellBorders)border.Clone());
+                _zelle = CreateTextCell(BuildRechteText(dienstbarkeit, auszug.Grundstueck.Grundbuchnummer), columnwidth);
             }
-
-            if (merge != null)
+            else if(row == 3)
             {
-                tableCellProperties.Append(new VerticalMerge() { Val = merge });
+                _zelle = CreateTextCell(BuildRechteBelege(dienstbarkeit), columnwidth);
             }
-
-            tableCellProperties.Append(tableCellWidth);
-            if (colspan != null)
-            {
-                GridSpan gridSpan = new GridSpan() { Val = colspan };
-                tableCellProperties.Append(gridSpan);
-            }
-
-            tableCell.Append(tableCellProperties);
-            tableCell.Append(content);
-
-            return tableCell;
-        }
-
-        private List<Paragraph> BuildRechteText(Dienstbarkeit dienstbarkeit, string rootKreis, bool showRangaenderung = true)
-        {
-            var result = new List<Paragraph>();
-
-            if (dienstbarkeit.Beziehungen != null && dienstbarkeit.Beziehungen.Any(i => i.Status == "R"))
-            {
-                var nrText = false;
-                Dictionary<string, List<List<Run>>> dicGS = new Dictionary<string, List<List<Run>>>();
-                Dictionary<string, List<Paragraph>> dicPersons = new Dictionary<string, List<Paragraph>>();
-                // z.G. oder z.L. nur einmal einfügen am Anfang
-                bool grolTextSet = false;
-                dienstbarkeit.Beziehungen.Where(i => i.Status == "R").ToList().ForEach(i =>
-                {
-                    var key = i.Grol;
-                    if (!dicGS.ContainsKey(key)) dicGS.Add(key, new List<List<Run>>());
-                    if (i.Grundstück.Grundbuchnummer != null)
-                    {
-                        nrText = true;
-                        var value = String.Join(", ", GetGSNummer(i.Grundstück,rootKreis));
-                        List<Run> textList = new List<Run>();
-                        if (dicGS[key].Count == 0)
-                        {
-                            textList.Add(new Run(new Text(value)));
-                            dicGS[key].Add(textList);
-                        }
-                        else
-                        {
-                            var text = dicGS[key][0];
-                            text.Add(new Run(new Text(", " + value)));
-                        }
-                    }
-
-                    if (i.Person.Status != null)
-                    {
-
-
-                        string einzugHaengend = "0";
-                        string einzugErsteLinie = "0";
-                        string einzug = "424";
-                        var personText = GetPersonText(i.Person);
-                        var runList = personText.Item1; // item1 = name
-                        runList.AddRange(personText.Item2); // item2 = adresseif (!dicPersons.ContainsKey(key)) 
-                        if (!dicPersons.ContainsKey(key)) dicPersons.Add(key, new List<Paragraph>());
-                        if (!grolTextSet)
-                        {
-                            var text = new Text($"{GetGROLText(key)}" + " ")
-                            { Space = SpaceProcessingModeValues.Preserve };
-                            grolTextSet = true;
-                            runList.Insert(0, new Run(text));
-                            einzugErsteLinie = "424";
-                            einzugHaengend = "424";
-                        }
-
-                        var para = new Paragraph(runList.ToArray());
-                        var paraprop = new ParagraphProperties();
-                        var indent = new Indentation() { Left = einzug, Hanging = einzugHaengend, FirstLine = einzugErsteLinie };
-                        paraprop.Append(indent);
-                        para.Append(paraprop);
-
-                        dicPersons[key].Add(para);
-
-                    }
-                });
-
-                foreach (var key in dicGS.Keys)
-                {
-                    string einzug = "424";
-                    string prepend = $"{GetGROLText(key)}" + (nrText && !string.Join(", ", dicGS[key]).Contains("s.u.d") ? " Nr." : "");
-                    if (prepend.Contains("Nr"))
-                    {
-                        einzug = "707";
-                        if (prepend.Contains("+")) einzug = "1274";
-                    }
-                    else if (prepend.Contains("+")) einzug = "951";
-
-                    foreach (var y in dicGS[key])
-                    {
-                        y.Insert(0, new Run(new Text(prepend + " ") { Space = SpaceProcessingModeValues.Preserve }));
-                        var p = new Paragraph(y.ToArray());
-                        var indent = new Indentation() { Left = einzug };
-                        var paraprop = new ParagraphProperties();
-                        paraprop.Append(indent);
-                        if (!String.IsNullOrEmpty(prepend))indent.Hanging = einzug;
-                        result.Add(p);
-                        prepend = " ";
-                    }
-                    if (dicPersons.ContainsKey(key)) // wenn es dazu Personen hat, anzeigen
-                    {
-                        result.AddRange(dicPersons[key]);
-                    }
-                }
-            }
-            return result;
         }
 
         private TableCell CreateTextCell(string width, string content, bool bold = false, int? colspan = null, JustificationValues alignment = JustificationValues.Left, string shading = null, MergedCellValues? merge = null, TableCellBorders border = null, string fontSize = null)
@@ -215,6 +90,134 @@ namespace abx.TEROffice.DocumentProcessing.Grundbuchauszug.Textmodules.Shared
             tableCell.Append(tableCellProperties);
             tableCell.Append(paragraph);
             return tableCell;
+        }
+
+        private TableCell CreateTextCell(List<Paragraph> content, string width, int? colspan = null, MergedCellValues? merge = null, TableCellBorders border = null)
+        {
+            if (content.Count == 0)
+            {
+                content.Add(new Paragraph(new Run(new Text())));
+            }
+
+            TableCell tableCell = new TableCell();
+            TableCellProperties tableCellProperties = new TableCellProperties();
+            TableCellWidth tableCellWidth = new TableCellWidth() { Width = width, Type = TableWidthUnitValues.Dxa };
+            if (border != null)
+            {
+                tableCellProperties.AppendChild((TableCellBorders)border.Clone());
+            }
+
+            if (merge != null)
+            {
+                tableCellProperties.Append(new VerticalMerge() { Val = merge });
+            }
+
+            tableCellProperties.Append(tableCellWidth);
+            if (colspan != null)
+            {
+                GridSpan gridSpan = new GridSpan() { Val = colspan };
+                tableCellProperties.Append(gridSpan);
+            }
+
+            tableCell.Append(tableCellProperties);
+            tableCell.Append(content);
+
+            return tableCell;
+        }
+
+        private List<Paragraph> BuildRechteText(Dienstbarkeit dienstbarkeit, string rootKreis, bool showRangaenderung = true)
+        {
+            var result = new List<Paragraph>();
+
+            if (dienstbarkeit.Beziehungen != null && dienstbarkeit.Beziehungen.Any(i => i.Status == "R"))
+            {
+                var nrText = false;
+                Dictionary<string, List<List<Run>>> dicGS = new Dictionary<string, List<List<Run>>>();
+                Dictionary<string, List<Paragraph>> dicPersons = new Dictionary<string, List<Paragraph>>();
+                // z.G. oder z.L. nur einmal einfügen am Anfang
+                bool grolTextSet = false;
+                dienstbarkeit.Beziehungen.Where(i => i.Status == "R").ToList().ForEach(i =>
+                {
+                    var key = i.Grol;
+                    if (!dicGS.ContainsKey(key)) dicGS.Add(key, new List<List<Run>>());
+                    if (i.Grundstück.Grundbuchnummer != null)
+                    {
+                        nrText = true;
+                        var value = String.Join(", ", GetGSNummer(i.Grundstück, rootKreis));
+                        List<Run> textList = new List<Run>();
+                        if (dicGS[key].Count == 0)
+                        {
+                            textList.Add(new Run(new Text(value)));
+                            dicGS[key].Add(textList);
+                        }
+                        else
+                        {
+                            var text = dicGS[key][0];
+                            text.Add(new Run(new Text(", " + value)));
+                        }
+                    }
+
+                    if (i.Person.Status != null)
+                    {
+
+
+                        string einzugHaengend = "0";
+                        string einzugErsteLinie = "0";
+                        string einzug = "424";
+                        var personText = GetPersonText(i.Person);
+                        var runList = personText.Item1; // item1 = name
+                        runList.AddRange(personText.Item2); // item2 = adresseif (!dicPersons.ContainsKey(key)) 
+                        if (!dicPersons.ContainsKey(key)) dicPersons.Add(key, new List<Paragraph>());
+                        if (!grolTextSet)
+                        {
+                            var text = new Text($"{GetGROLText(key)}" + " ")
+                            { Space = SpaceProcessingModeValues.Preserve };
+                            grolTextSet = true;
+                            runList.Insert(0, new Run(text));
+                            einzugErsteLinie = "424";
+                            einzugHaengend = "424";
+                        }
+
+                        var para = new Paragraph(runList.ToArray());
+                        var paraprop = new ParagraphProperties();
+                        var indent = new Indentation() { Left = einzug, Hanging = einzugHaengend, FirstLine = einzugErsteLinie };
+                        paraprop.Append(indent);
+                        para.Append(paraprop);
+
+                        dicPersons[key].Add(para);
+
+                    }
+                });
+
+                foreach (var key in dicGS.Keys)
+                {
+                    string einzug = "424";
+                    string prepend = $"{GetGROLText(key)}" + (nrText && !string.Join(", ", dicGS[key]).Contains("s.u.d") ? " Nr." : "");
+                    if (prepend.Contains("Nr"))
+                    {
+                        einzug = "707";
+                        if (prepend.Contains("+")) einzug = "1274";
+                    }
+                    else if (prepend.Contains("+")) einzug = "951";
+
+                    foreach (var y in dicGS[key])
+                    {
+                        y.Insert(0, new Run(new Text(prepend + " ") { Space = SpaceProcessingModeValues.Preserve }));
+                        var p = new Paragraph(y.ToArray());
+                        var indent = new Indentation() { Left = einzug };
+                        var paraprop = new ParagraphProperties();
+                        paraprop.Append(indent);
+                        if (!String.IsNullOrEmpty(prepend)) indent.Hanging = einzug;
+                        result.Add(p);
+                        prepend = " ";
+                    }
+                    if (dicPersons.ContainsKey(key)) // wenn es dazu Personen hat, anzeigen
+                    {
+                        result.AddRange(dicPersons[key]);
+                    }
+                }
+            }
+            return result;
         }
 
         private Tuple<List<Run>, List<Run>> GetPersonText(Person person)
@@ -332,6 +335,7 @@ namespace abx.TEROffice.DocumentProcessing.Grundbuchauszug.Textmodules.Shared
             if (gs == null) return null;
             return GetGSNummer(gs.GrundstückIdMitGrundbuch, rootKreis);
         }
+
         public static string GetGSNummer(string gsNummer, string rootKreis)
         {
             string rootKreisBezeichnung;
@@ -347,10 +351,65 @@ namespace abx.TEROffice.DocumentProcessing.Grundbuchauszug.Textmodules.Shared
             return gsNummer;
         }
 
-        public TableRow GetZeile()
+        private List<Paragraph> BuildRechteBelege(Dienstbarkeit dienstbarkeit)
         {
-            return this._zeile;
+            var result = new List<Paragraph>();
+            foreach (var beleg in dienstbarkeit.Belege.Where(i => i.Status == "R" && (IsBeleg(i))).OrderBy(i => i.DatumFormatEu).ThenBy(i => i.NummerMitWhitespace).ThenBy(i => i.Status))
+            {
+                {
+                    string belegText = GetBelegText(beleg);
+                    result.Add(new Paragraph(new Run(new Text(belegText))));
+                }
+            }
+            return result;
+        }
+
+        private bool IsBeleg(Belege beleg)
+        {
+            return IsBeleg(beleg.NummerMitWhitespace);
+        }
+
+        private bool IsBeleg(string nr)
+        {
+            Regex r = new Regex("\\s[(].*[)]$");
+            Match m = r.Match(nr);
+            if (m.Length > 0)
+            {
+                nr = nr.Replace(m.Value, "");
+            }
+
+            //           ~               Nummern, die mit 2 Buchstaben enden                     Nummern die mit 2 Zahlen enden
+            return nr.Contains("~") || nr.Substring(nr.Length - 2).All(i => Char.IsLetter(i)) || nr.Substring(nr.Length - 2).All(i => !Char.IsLetter(i));
+
+        }
+
+        private string GetBelegText(Belege beleg, bool date = true)
+        {
+            string belegText = "";
+            if (IsBeleg(beleg))
+            {
+                if (date && !string.IsNullOrEmpty(beleg.DatumFormatEu) && DateTime.Parse(beleg.DatumFormatUsa) > DateTime.MinValue.AddYears(1000))
+                {
+                    belegText += DateTime.Parse(beleg.DatumFormatUsa).ToString("dd.MM.yyyy") + " ";
+                }
+
+                if (!beleg.NummerOhneWhitespace.Contains("BH"))
+                {
+                    belegText += $"Beleg ";
+                }
+                belegText += $"{beleg.NummerOhneWhitespace}";
+            }
+            else
+            {
+                belegText = $"Geschäft {beleg.NummerOhneWhitespace}";
+            }
+
+            return belegText;
+        }
+
+        public TableCell GetZelle()
+        {
+            return this._zelle;
         }
     }
-
 }

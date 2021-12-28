@@ -6,6 +6,7 @@ using abx.TEROffice.DataReader.Businessmodel.Dienstbarkeiten;
 using abx.TEROffice.DataReader.Datamodel;
 using abx.TEROffice.DataReader.Datamodel.AUSZUG.DBK;
 using abx.TEROffice.DataReader.Datamodel.AUSZUG.GRU;
+using abx.TEROffice.DataReader.Datamodel.Shared.BEL;
 using abx.TEROffice.DataReader.Datamodel.Shared.BEZ;
 using abx.TEROffice.DataReader.Datamodel.Shared.PERSON;
 
@@ -45,7 +46,8 @@ namespace abx.TEROffice.DataReader.BLL
                     LastRechtInhaltZusatz = dbk.INHOCC.LRINH1,
                     Errichtungsdatum = dbk.INHOCC.ERIDAT,
                     Betrag = dbk.INHOCC.BETR,
-                    Beziehungen = FillRelation(dbk.BEZ.BEZOCC)
+                    Beziehungen = FillRelation(dbk.BEZ.BEZOCC),
+                    Belege = FillBelege(dbk.BEL.BELOCC)
                 };
                 listOfDienstbarkeiten.Add(dienstbarkeit);
             }
@@ -73,6 +75,26 @@ namespace abx.TEROffice.DataReader.BLL
             }
 
             return listOfRelations;
+        }
+
+        private List<Belege> FillBelege(List<BELOCC> listOfBeloccs)
+        {
+            var listOfBelege = new List<Belege>();
+            foreach (var bel in listOfBeloccs)
+            {
+                var beleg = new Belege()
+                {
+                    Status = bel.ST,
+                    DatumFormatUsa = bel.DTX,
+                    DatumFormatEu = bel.DT,
+                    NummerMitWhitespace = bel.NR,
+                    NummerOhneWhitespace = bel.NRT,
+                    Text = bel.TXT
+                };
+                listOfBelege.Add(beleg);
+            }
+
+            return listOfBelege;
         }
 
         private Person FillPerson(PERSON pers)

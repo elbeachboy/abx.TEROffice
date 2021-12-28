@@ -1,17 +1,12 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-using abx.TEROffice.DataReader.Businessmodel.Dienstbarkeiten;
-using abx.TEROffice.DocumentProcessing.Grundbuchauszug.Textmodules.Interfaces;
-using DocumentFormat.OpenXml;
+﻿using abx.TEROffice.DocumentProcessing.Grundbuchauszug.Textbausteine.Interfaces;
 using DocumentFormat.OpenXml.Wordprocessing;
 
-namespace abx.TEROffice.DocumentProcessing.Grundbuchauszug.Textmodules.Shared
+namespace abx.TEROffice.DocumentProcessing.Grundbuchauszug.Textbausteine.Shared
 {
-    public class Tabelle : ITextbaustein
+    public class TabelleTextbaustein : ITextbaustein
     {
         private Paragraph _tabelle;
-        public Tabelle(DataReader.Businessmodel.Grundbuchauszug auszug)
+        public TabelleTextbaustein(DataReader.Businessmodel.Grundbuchauszug auszug)
         {
             _tabelle = new Paragraph();
             var run = new Run();
@@ -61,11 +56,12 @@ namespace abx.TEROffice.DocumentProcessing.Grundbuchauszug.Textmodules.Shared
             var headerRow = new TableRow();
             headerRow.Append(new TableCell(new Paragraph(new Run(new Text("Reg-Nr.")){RunProperties = new RunProperties(new Bold())})));
             headerRow.Append(new TableCell(new Paragraph(new Run(new Text("Stichwort")){RunProperties = new RunProperties(new Bold())})));
+            headerRow.Append(new TableCell(new Paragraph(new Run(new Text("Beleg / Datum")){RunProperties = new RunProperties(new Bold())})));
             tableGrid.Append(headerRow);
 
             foreach (var dbk in auszug.Dienstbarkeiten)
             {
-                Zeile row = new Zeile(dbk, auszug, columnOne, columnTwo, columnThree);
+                ZeileTextbaustein row = new ZeileTextbaustein(dbk, auszug, columnOne, columnTwo, columnThree);
                 tableGrid.Append(row.GetZeile());
             }
 

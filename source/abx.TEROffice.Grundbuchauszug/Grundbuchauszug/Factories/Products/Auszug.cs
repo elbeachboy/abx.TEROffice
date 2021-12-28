@@ -6,8 +6,6 @@ using abx.TEROffice.DataReader.Businessmodel.Dienstbarkeiten;
 using abx.TEROffice.DataReader.Datamodel.AUSZUG.DBK;
 using abx.TEROffice.DocumentProcessing.Grundbuchauszug.Factories.Interfaces;
 using abx.TEROffice.DocumentProcessing.Grundbuchauszug.Factories.TextModuleFactories;
-using abx.TEROffice.DocumentProcessing.Grundbuchauszug.Textmodules;
-using abx.TEROffice.DocumentProcessing.Grundbuchauszug.Textmodules.Interfaces;
 using DocumentFormat.OpenXml;
 using DocumentFormat.OpenXml.Packaging;
 using DocumentFormat.OpenXml.Wordprocessing;
