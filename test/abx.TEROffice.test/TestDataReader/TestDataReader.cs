@@ -30,15 +30,15 @@ namespace abx.TEROffice.test.TestDataReader
         [Fact]
         public void IsDeserialzeSuccesful()
         {
-            var dienstbarkeiten = _data.GetDienstbarkeiten(_testFilePath);
-            Assert.Equal(4,dienstbarkeiten.Count);
+            var auszug = _data.GetAuszug(_testFilePath);
+            Assert.Equal(4,auszug.Dienstbarkeiten.Count);
         }
 
         [Fact]
         public void IsModelbiuldingSuccessful()
         {
-            var dienstbarkeiten = _data.GetDienstbarkeiten(_testFilePath);
-            Assert.Equal(dbk.Ereid, dienstbarkeiten[0].Ereid);
+            var auszug = _data.GetAuszug(_testFilePath);
+            Assert.Equal(dbk.Ereid, auszug.Dienstbarkeiten[0].Ereid);
         }
     }
 }

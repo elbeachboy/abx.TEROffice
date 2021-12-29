@@ -1,4 +1,6 @@
-﻿using abx.TEROffice.DocumentProcessing.Grundbuchauszug.Textbausteine.Interfaces;
+﻿using System;
+using abx.TEROffice.DocumentProcessing.Exceptionhandling;
+using abx.TEROffice.DocumentProcessing.Grundbuchauszug.Textbausteine.Interfaces;
 using DocumentFormat.OpenXml.Wordprocessing;
 
 namespace abx.TEROffice.DocumentProcessing.Grundbuchauszug.Textbausteine.Shared
@@ -8,23 +10,46 @@ namespace abx.TEROffice.DocumentProcessing.Grundbuchauszug.Textbausteine.Shared
         private Paragraph _tabelle;
         public TabelleTextbaustein(DataReader.Businessmodel.Grundbuchauszug auszug)
         {
+
+
+            try
+            {
+                BuildTableStructure(auszug);
+            }
+            catch (Exception e)
+            {
+                throw new TechnicalException();
+            }
+
+
+        }
+
+        public Paragraph GetParagraph()
+        {
+            return this._tabelle;
+        }
+
+        private void BuildTableStructure(DataReader.Businessmodel.Grundbuchauszug auszug)
+        {
+
             _tabelle = new Paragraph();
             var run = new Run();
-            Table table = new Table();
+
 
 
             var columnOne = "2269";
             var columnTwo = "4722";
             var columnThree = "2109";
-
+            
+            Table table = new Table();
             TableProperties tableProperties = new TableProperties();
             TableStyle tableStyle = new TableStyle() { Val = "Tabellenraster" };
             TableWidth tableWidth = new TableWidth() { Width = "9100", Type = TableWidthUnitValues.Dxa };
             TableLook tableLook = new TableLook() { Val = "04A0", FirstRow = true, LastRow = false, FirstColumn = true, LastColumn = false, NoHorizontalBand = false, NoVerticalBand = true };
 
-            
 
-            TableBorders tableBorder = new TableBorders(); TableBorders tableBorders1 = new TableBorders();
+
+            TableBorders tableBorder = new TableBorders();
             tableBorder.Append(new TopBorder() { Val = BorderValues.None, Color = "auto", Size = 0U, Space = 0U });
             tableBorder.Append(new LeftBorder() { Val = BorderValues.None, Color = "auto", Size = 0U, Space = 0U });
             tableBorder.Append(new BottomBorder() { Val = BorderValues.None, Color = "auto", Size = 0U, Space = 0U });
@@ -46,7 +71,7 @@ namespace abx.TEROffice.DocumentProcessing.Grundbuchauszug.Textbausteine.Shared
             tableProperties.Append(tableCellMarginDefault);
 
             table.Append(tableProperties);
-
+            
             TableGrid tableGrid = new TableGrid();
             tableGrid.Append(new GridColumn() { Width = columnOne });
             tableGrid.Append(new GridColumn() { Width = columnTwo });
@@ -68,11 +93,6 @@ namespace abx.TEROffice.DocumentProcessing.Grundbuchauszug.Textbausteine.Shared
 
             run.AppendChild(table);
             _tabelle.AppendChild(run);
-        }
-
-        public Paragraph GetParagraph()
-        {
-            return this._tabelle;
         }
 
     }

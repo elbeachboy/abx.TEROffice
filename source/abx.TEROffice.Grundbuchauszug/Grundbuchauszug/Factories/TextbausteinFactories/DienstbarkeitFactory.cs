@@ -6,7 +6,7 @@ namespace abx.TEROffice.DocumentProcessing.Grundbuchauszug.Factories.Textbaustei
 {
     public class DienstbarkeitFactory : ITextbausteinFactory
     {
-        public ITextbaustein CreateTextModule(DataReader.Businessmodel.Grundbuchauszug auszug)
+        public ITextbaustein CreateTextbaustein(DataReader.Businessmodel.Grundbuchauszug auszug)
         {
             return new DienstbarkeitTextbaustein(auszug);
         }

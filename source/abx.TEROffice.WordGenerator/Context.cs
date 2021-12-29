@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 using abx.TEROffice.WordGenerator.Interfaces;
+using DocumentFormat.OpenXml.Packaging;
 using DocumentFormat.OpenXml.Wordprocessing;
 
 namespace abx.TEROffice.WordGenerator
@@ -10,15 +11,7 @@ namespace abx.TEROffice.WordGenerator
     {
         private ISaveStrategy _strategy;
 
-        private Document doc = new Document();
-        
-
-        public Context()
-        {
-            doc.Append(new Text("Ich bin ein Auszug"));
-        }
-
-        public void SaveWord()
+        public void SaveWord(WordprocessingDocument doc)
         {
            
             this._strategy.Save(doc);

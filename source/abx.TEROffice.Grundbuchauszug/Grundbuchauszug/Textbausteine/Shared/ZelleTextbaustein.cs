@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Text.RegularExpressions;
 using abx.TEROffice.DataReader.Businessmodel.Dienstbarkeiten;
+using abx.TEROffice.DocumentProcessing.Exceptionhandling;
 using abx.TEROffice.DocumentProcessing.Grundbuchauszug.Textbausteine.Interfaces;
 using abx.TEROffice.DocumentProcessing.Helper;
 using DocumentFormat.OpenXml;
@@ -16,18 +17,26 @@ namespace abx.TEROffice.DocumentProcessing.Grundbuchauszug.Textbausteine.Shared
     private TableCell _zelle;
     public ZelleTextbaustein(string columnwidth, int row, Dienstbarkeit dienstbarkeit, DataReader.Businessmodel.Grundbuchauszug auszug)
     {
-      if (row == 1)
-      {
-        _zelle = CreateTextCell(columnwidth, $"{dienstbarkeit.LastRechIdGesamt.TrimStart(' ')}: {dienstbarkeit.LastRechtBezeichnung.Replace(":", "")}");
-      }
-      else if (row == 2)
-      {
-        _zelle = CreateTextCell(BuildRechteText(dienstbarkeit, auszug.Grundstueck.Grundbuchnummer), columnwidth);
-      }
-      else if (row == 3)
-      {
-        _zelle = CreateTextCell(BuildRechteBelege(dienstbarkeit), columnwidth);
-      }
+        try
+        {
+            if (row == 1)
+            {
+                _zelle = CreateTextCell(columnwidth, $"{dienstbarkeit.LastRechIdGesamt.TrimStart(' ')}: {dienstbarkeit.LastRechtBezeichnung.Replace(":", "")}");
+            }
+            else if (row == 2)
+            {
+                _zelle = CreateTextCell(BuildRechteText(dienstbarkeit, auszug.Grundstueck.Grundbuchnummer), columnwidth);
+            }
+            else if (row == 3)
+            {
+                _zelle = CreateTextCell(BuildRechteBelege(dienstbarkeit), columnwidth);
+            }
+        }
+        catch (TerofficeException e)
+        {
+            throw;
+        }
+
     }
 
     public TableCell GetZelle()

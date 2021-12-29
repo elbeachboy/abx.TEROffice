@@ -1,10 +1,11 @@
 ﻿using System.Collections.Generic;
 using abx.TEROffice.DataReader.Businessmodel;
 using abx.TEROffice.DataReader.Businessmodel.Dienstbarkeiten;
+using abx.TEROffice.DataReader.Interface;
 
 namespace abx.TEROffice.DataReader.BLL
 {
-    public class Data
+    public class Data : IData
     {
         private Deserialization _deserialization = new Deserialization();
         private Modelbuilder _modelbuilder = new Modelbuilder();
