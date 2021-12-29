@@ -10,6 +10,7 @@ using abx.TEROffice.DocumentProcessing.Grundbuchauszug.Factories.Interfaces;
 using abx.TEROffice.DocumentProcessing.Grundbuchauszug.Factories.TextbausteinFactories;
 using abx.TEROffice.DocumentProcessing.Strategies;
 using abx.TEROffice.DocumentProcessing.Strategies.Interfaces;
+using abx.TEROffice.Manager;
 using abx.TEROffice.WordGenerator;
 using abx.TEROffice.WordGenerator.Interfaces;
 using DocumentFormat.OpenXml.Office.PowerPoint.Y2021.M06.Main;

@@ -24,7 +24,7 @@ namespace abx.TEROffice.DocumentProcessing.Strategies
             }
             catch (Exception e)
             {
-                throw new TerofficeTechnicalException(e, "Fehler beim Word erstellen");
+                throw;
             }
         }
 

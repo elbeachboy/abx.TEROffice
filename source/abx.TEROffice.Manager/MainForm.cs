@@ -38,7 +38,7 @@ namespace abx.TEROffice.Manager
 
                 InitializeComponent();
                 this.Hide();
-
+                
                 if (type == "Auszug")
                 {
                     var paths = new PathHelper();
@@ -48,7 +48,7 @@ namespace abx.TEROffice.Manager
                 }
             }
 
-            //Beispielhafte Fehlerbehandlung, wird im Prototyp nicht ausfürlich programmiert
+            //Beispielhafte Fehlerbehandlung, wird im Prototyp nicht ausführlich programmiert
             catch (TerofficeSystemException e)
             {
                 e.WriteToLog(_logger);

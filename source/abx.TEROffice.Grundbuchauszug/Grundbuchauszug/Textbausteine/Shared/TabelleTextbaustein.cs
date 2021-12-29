@@ -65,6 +65,11 @@ namespace abx.TEROffice.DocumentProcessing.Grundbuchauszug.Textbausteine.Shared
 
             table.Append(tableProperties);
 
+
+            //Die nächsten zwei Zeilen einkommentieren um einen Fehler im Textbaustein zu generieren, danach im Logfile überprüfen
+            //Paragraph para = new Paragraph();
+            //para.Append(table);
+
             TableGrid tableGrid = new TableGrid();
             tableGrid.Append(new GridColumn() { Width = columnOne });
             tableGrid.Append(new GridColumn() { Width = columnTwo });
