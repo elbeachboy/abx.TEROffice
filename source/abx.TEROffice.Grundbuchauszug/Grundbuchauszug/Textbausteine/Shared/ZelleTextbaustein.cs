@@ -12,31 +12,36 @@ using DocumentFormat.OpenXml.Wordprocessing;
 
 namespace abx.TEROffice.DocumentProcessing.Grundbuchauszug.Textbausteine.Shared
 {
-  public class ZelleTextbaustein
+  public class ZelleTextbaustein : ITextbaustein
   {
     private TableCell _zelle;
     public ZelleTextbaustein(string columnwidth, int row, Dienstbarkeit dienstbarkeit, DataReader.Businessmodel.Grundbuchauszug auszug)
     {
-        try
+      try
+      {
+        if (row == 1)
         {
-            if (row == 1)
-            {
-                _zelle = CreateTextCell(columnwidth, $"{dienstbarkeit.LastRechIdGesamt.TrimStart(' ')}: {dienstbarkeit.LastRechtBezeichnung.Replace(":", "")}");
-            }
-            else if (row == 2)
-            {
-                _zelle = CreateTextCell(BuildRechteText(dienstbarkeit, auszug.Grundstueck.Grundbuchnummer), columnwidth);
-            }
-            else if (row == 3)
-            {
-                _zelle = CreateTextCell(BuildRechteBelege(dienstbarkeit), columnwidth);
-            }
+          _zelle = CreateTextCell(columnwidth, $"{dienstbarkeit.LastRechIdGesamt.TrimStart(' ')}: {dienstbarkeit.LastRechtBezeichnung.Replace(":", "")}");
         }
-        catch (TerofficeException e)
+        else if (row == 2)
         {
-            throw;
+          _zelle = CreateTextCell(BuildRechteText(dienstbarkeit, auszug.Grundstueck.Grundbuchnummer), columnwidth);
         }
+        else if (row == 3)
+        {
+          _zelle = CreateTextCell(BuildRechteBelege(dienstbarkeit), columnwidth);
+        }
+      }
+      catch (Exception e)
+      {
+        throw new TerofficeBusinessEception(e, "Fehler beim Erstellen des Textbausteines 'Zelle'.");
+      }
+    }
 
+    //Wird in diesem Textbaustein nicht gebraucht.
+    public Paragraph GetParagraph()
+    {
+      return null;
     }
 
     public TableCell GetZelle()
@@ -181,8 +186,8 @@ namespace abx.TEROffice.DocumentProcessing.Grundbuchauszug.Textbausteine.Shared
             string einzug = "424";
             var personText = GetPersonText(i.Person);
             var runList = personText.Item1; // item1 = name
-                    runList.AddRange(personText.Item2); // item2 = adresseif (!dicPersons.ContainsKey(key)) 
-                    if (!dicPersons.ContainsKey(key)) dicPersons.Add(key, new List<Paragraph>());
+            runList.AddRange(personText.Item2); // item2 = adresseif (!dicPersons.ContainsKey(key)) 
+            if (!dicPersons.ContainsKey(key)) dicPersons.Add(key, new List<Paragraph>());
             if (!grolTextSet)
             {
               var text = new Text($"{GetGROLText(key)}" + " ")
@@ -345,13 +350,13 @@ namespace abx.TEROffice.DocumentProcessing.Grundbuchauszug.Textbausteine.Shared
       return "";
     }
 
-    public string GetGSNummer(Grundstück gs, string rootKreis)
+    private string GetGSNummer(Grundstück gs, string rootKreis)
     {
       if (gs == null) return null;
       return GetGSNummer(gs.GrundstückIdMitGrundbuch, rootKreis);
     }
 
-    public string GetGSNummer(string gsNummer, string rootKreis)
+    private string GetGSNummer(string gsNummer, string rootKreis)
     {
       string rootKreisBezeichnung;
       Grundbuchkreise kreise = new Grundbuchkreise();
@@ -421,7 +426,6 @@ namespace abx.TEROffice.DocumentProcessing.Grundbuchauszug.Textbausteine.Shared
 
       return belegText;
     }
-
 
   }
 }

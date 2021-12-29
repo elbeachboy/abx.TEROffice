@@ -29,7 +29,7 @@ namespace abx.TEROffice.Manager.Helpers
             }
             else
             {
-                throw new BusinessEception();
+                throw new TerofficeBusinessEception();
             }
         }
 

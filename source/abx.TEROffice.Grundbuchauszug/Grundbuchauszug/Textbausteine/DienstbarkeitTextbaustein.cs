@@ -20,7 +20,6 @@ namespace abx.TEROffice.DocumentProcessing.Grundbuchauszug.Textbausteine
             }
             catch (Exception e)
             {
-                Console.WriteLine(e);
                 throw;
             }
 

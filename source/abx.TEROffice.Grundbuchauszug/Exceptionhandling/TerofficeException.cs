@@ -6,20 +6,17 @@ namespace abx.TEROffice.DocumentProcessing.Exceptionhandling
 {
     public class TerofficeException : Exception
     {
-        public void WriteToLog(SystemException e, ILog logger)
+    public TerofficeException(Exception e,string customMessage)
+    {
+      _customMessage = customMessage;
+      _originException = e;
+    }
+    public Exception _originException { get; set; }
+    public string _customMessage { get; set; }
+    public void WriteToLog(ILog logger)
         {
-            logger.Fatal(e);
+            logger.Error(_customMessage,_originException);
 
-        }
-
-        public void WriteToLog(TechnicalException e, ILog logger)
-        {
-            logger.Error(e);
-        }
-
-        public void WriteToLog(BusinessEception e, ILog logger)
-        {
-            logger.Warn(e);
         }
     }
 }
