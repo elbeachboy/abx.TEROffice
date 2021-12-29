@@ -8,6 +8,8 @@ using abx.TEROffice.DataReader.Interface;
 using abx.TEROffice.DocumentProcessing.Grundbuchauszug.Factories.HeadFactories;
 using abx.TEROffice.DocumentProcessing.Grundbuchauszug.Factories.Interfaces;
 using abx.TEROffice.DocumentProcessing.Grundbuchauszug.Factories.TextbausteinFactories;
+using abx.TEROffice.DocumentProcessing.Strategies;
+using abx.TEROffice.DocumentProcessing.Strategies.Interfaces;
 using abx.TEROffice.WordGenerator;
 using abx.TEROffice.WordGenerator.Interfaces;
 using DocumentFormat.OpenXml.Office.PowerPoint.Y2021.M06.Main;
@@ -48,7 +50,8 @@ namespace abx.TEROffice.Main
       services.AddTransient<IData, Data>();
       services.AddTransient<IWordFactory, AuszugFactory>();
       services.AddTransient<ITextbausteinFactory, DienstbarkeitFactory>();
-      services.AddTransient<IContext, Context>();
+      services.AddTransient<IWordGeneratorContext, WordGeneratorContext>();
+      services.AddTransient<IDocumentProcessingContext, DocumentProcessingContext>();
       _serviceProvider = services.BuildServiceProvider();
     }
   }

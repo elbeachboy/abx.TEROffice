@@ -8,7 +8,7 @@ using DocumentFormat.OpenXml.Wordprocessing;
 
 namespace abx.TEROffice.WordGenerator
 {
-    public class Context : IContext
+    public class WordGeneratorContext : IWordGeneratorContext
     {
         private ISaveStrategy _strategy;
 

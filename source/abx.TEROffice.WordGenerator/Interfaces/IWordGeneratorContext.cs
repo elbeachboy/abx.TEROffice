@@ -5,7 +5,7 @@ using DocumentFormat.OpenXml.Packaging;
 
 namespace abx.TEROffice.WordGenerator.Interfaces
 {
-    public interface IContext
+    public interface IWordGeneratorContext
     {
         void SaveWord(WordprocessingDocument doc);
 

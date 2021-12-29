@@ -1,9 +1,11 @@
-﻿namespace abx.TEROffice.DocumentProcessing.Exceptionhandling
+﻿using System;
+
+namespace abx.TEROffice.DocumentProcessing.Exceptionhandling
 {
   public class TerofficeSystemException : TerofficeException
   {
-    public TerofficeSystemException(string customMessage) : base(customMessage)
-    {
-    }
+      public TerofficeSystemException(Exception e, string customMessage) : base(e, customMessage)
+      {
+      }
   }
 }

@@ -1,7 +1,6 @@
 ﻿using System.Configuration;
-using abx.TEROffice.DocumentProcessing.Exceptionhandling;
 
-namespace abx.TEROffice.Manager.Helpers
+namespace abx.TEROffice.DocumentProcessing.Helper
 {
     public class PathHelper
     {
@@ -23,15 +22,7 @@ namespace abx.TEROffice.Manager.Helpers
 
         private string GetWordTemplateName(string name)
         {
-            if (name.Equals("LUAuszug"))
-            {
-                return "Grundbuchauszug.docx";
-            }
-            else
-            {
-                throw new TerofficeBusinessEception();
-            }
+            return "Grundbuchauszug.docx";
         }
-
     }
 }

@@ -1,4 +1,4 @@
-﻿namespace abx.TEROffice.Main
+﻿namespace abx.TEROffice.Manager
 {
     partial class MainForm
     {
