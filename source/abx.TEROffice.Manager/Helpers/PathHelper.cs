@@ -3,28 +3,29 @@ using abx.TEROffice.DocumentProcessing.Exceptionhandling;
 
 namespace abx.TEROffice.Manager.Helpers
 {
-    public class Helper
+    public class PathHelper
     {
         public string GetDataFilePath()
         {
             return ConfigurationManager.AppSettings["DataFilePath"];
         }
 
-        public string GetWordTemplatePath()
+        public string GetWordTemplatePath(string wordtemplate)
         {
-            return ConfigurationManager.AppSettings["WordTemplatePath"];
+            return ConfigurationManager.AppSettings["WordTemplatePath"] + GetWordTemplateName(wordtemplate);
         }
 
-        public string GetWordTemplateExtension()
+
+        public string GetWordOutputPath()
         {
-            return ConfigurationManager.AppSettings["WordTemplateExtension"];
+            return ConfigurationManager.AppSettings["WordOutputPath"];
         }
 
-        public string GetWordTemplateName(string name)
+        private string GetWordTemplateName(string name)
         {
             if (name.Equals("LUAuszug"))
             {
-                return "Grundbuchauszug";
+                return "Grundbuchauszug.docx";
             }
             else
             {

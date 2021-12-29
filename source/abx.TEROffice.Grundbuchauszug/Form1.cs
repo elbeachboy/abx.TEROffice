@@ -15,6 +15,7 @@ namespace abx.TEROffice.Grundbuchauszug
         public Form1()
         {
             InitializeComponent();
+            this.Hide();
         }
 
     }

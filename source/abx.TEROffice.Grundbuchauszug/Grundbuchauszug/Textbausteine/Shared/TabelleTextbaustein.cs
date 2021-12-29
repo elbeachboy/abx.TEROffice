@@ -71,7 +71,7 @@ namespace abx.TEROffice.DocumentProcessing.Grundbuchauszug.Textbausteine.Shared
             tableProperties.Append(tableCellMarginDefault);
 
             table.Append(tableProperties);
-            
+
             TableGrid tableGrid = new TableGrid();
             tableGrid.Append(new GridColumn() { Width = columnOne });
             tableGrid.Append(new GridColumn() { Width = columnTwo });

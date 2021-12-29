@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Windows;
 using System.Collections.Generic;
+using System.Diagnostics;
+using System.IO;
 using System.Text;
 using abx.TEROffice.WordGenerator.Interfaces;
 using DocumentFormat.OpenXml.ExtendedProperties;
@@ -15,5 +17,11 @@ namespace abx.TEROffice.WordGenerator.Strategies
         {
             doc.Save();
         }
+
+        public void Open(string filepath)
+        {
+            Process.Start("explorer.exe", filepath);
+        }
+
     }
 }
