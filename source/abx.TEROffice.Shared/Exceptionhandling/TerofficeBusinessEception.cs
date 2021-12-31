@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace abx.TEROffice.DocumentProcessing.Exceptionhandling
+namespace abx.TEROffice.Shared.Exceptionhandling
 {
   public class TerofficeBusinessEception : TerofficeException
   {

@@ -2,7 +2,7 @@
 using log4net;
 
 
-namespace abx.TEROffice.DocumentProcessing.Exceptionhandling
+namespace abx.TEROffice.Shared.Exceptionhandling
 {
     public class TerofficeException : Exception
     {

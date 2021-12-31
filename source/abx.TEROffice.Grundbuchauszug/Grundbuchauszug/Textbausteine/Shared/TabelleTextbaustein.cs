@@ -1,5 +1,5 @@
 ﻿using System;
-using abx.TEROffice.DocumentProcessing.Exceptionhandling;
+using abx.TEROffice.Shared.Exceptionhandling;
 using abx.TEROffice.DocumentProcessing.Grundbuchauszug.Textbausteine.Interfaces;
 using DocumentFormat.OpenXml.Wordprocessing;
 

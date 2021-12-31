@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Text.RegularExpressions;
 using abx.TEROffice.DataReader.Businessmodel.Dienstbarkeiten;
-using abx.TEROffice.DocumentProcessing.Exceptionhandling;
+using abx.TEROffice.Shared.Exceptionhandling;
 using abx.TEROffice.DocumentProcessing.Grundbuchauszug.Textbausteine.Interfaces;
 using abx.TEROffice.DocumentProcessing.Helper;
 using DocumentFormat.OpenXml;

@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Text;
 using abx.TEROffice.DataReader.Interface;
-using abx.TEROffice.DocumentProcessing.Exceptionhandling;
+using abx.TEROffice.Shared.Exceptionhandling;
 using abx.TEROffice.DocumentProcessing.Grundbuchauszug.Factories.Interfaces;
 using abx.TEROffice.DocumentProcessing.Helper;
 using abx.TEROffice.DocumentProcessing.Strategies.Interfaces;
