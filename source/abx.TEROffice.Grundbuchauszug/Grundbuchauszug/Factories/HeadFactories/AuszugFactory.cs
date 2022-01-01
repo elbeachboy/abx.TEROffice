@@ -10,7 +10,6 @@ namespace abx.TEROffice.DocumentProcessing.Grundbuchauszug.Factories.HeadFactori
 {
     public class AuszugFactory : IWordFactory
     {
-        private ITextbausteinFactory _dienstbarkeitFactory;
         public IWord CreateWord(WordprocessingDocument doc, DataReader.Businessmodel.Grundbuchauszug auszug, ITextbausteinFactory dienstbarkeitFactory)
         {
             return new Auszug(doc, auszug, dienstbarkeitFactory);
