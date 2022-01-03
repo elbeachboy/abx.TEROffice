@@ -1,0 +1,437 @@
+﻿<?xml version='1.0' encoding='UTF-8'?>
+<TER:AUSZUEGE xmlns:xsi='http://www.w3.org/2001/XMLSchema-instance' xmlns:TER='http://www.nundw.ch/terrisxml01'>
+	<TER:MSGTBDAT>2021-06-25</TER:MSGTBDAT>
+	<TER:MSGTBNR>    2OS</TER:MSGTBNR>
+	<TER:MSGSTAO>OS</TER:MSGSTAO>
+	<TER:USERKRZ>11wwlu</TER:USERKRZ>
+	<TER:ORT>Luzern</TER:ORT>
+	<TER:DAT>06.10.2021</TER:DAT>
+	<TER:ZEIT>11.40</TER:ZEIT>
+	<TER:AMT>Grundbuchamt Luzern</TER:AMT>
+	<TER:PEROB_GBAID/>
+	<TER:AUSZUG>
+		<TER:GRU>
+			<TER:LU2015_INHALT>LU/GRAVIS:11111111111</TER:LU2015_INHALT>
+			<TER:LU2017_Register>F</TER:LU2017_Register>
+			<TER:GRUNDST>
+				<TER:ST/>
+				<TER:ST_EIG>R</TER:ST_EIG>
+				<TER:GRGB>111</TER:GRGB>
+				<TER:GRID>#        150</TER:GRID>
+				<TER:GRART>1</TER:GRART>
+				<TER:EGRID_FOR_KSA>CH558050883508</TER:EGRID_FOR_KSA>
+				<TER:GRGBTXT>Luzern linkes Ufer</TER:GRGBTXT>
+				<TER:GRIDTXT>150</TER:GRIDTXT>
+				<TER:GRIDT>150</TER:GRIDT>
+				<TER:GRIDW>eins fünf null</TER:GRIDW>
+				<TER:EBLATT/>
+				<TER:VERI>T</TER:VERI>
+				<TER:VERITXT>gesperrt</TER:VERITXT>
+			</TER:GRUNDST>
+			<TER:GRIDBEZ>Liegenschaft Nr.</TER:GRIDBEZ>
+			<TER:BRSTAT/>
+			<TER:INHOCC>
+				<TER:MUTID1>KEINEIDENT</TER:MUTID1>
+				<TER:MUTID2>2014/28L</TER:MUTID2>
+				<TER:ST>R</TER:ST>
+				<TER:MDTX>2014-11-12</TER:MDTX>
+				<TER:MNR> 1369LU</TER:MNR>
+				<TER:FLAE>239 m²</TER:FLAE>
+				<TER:MUTNRBEZ>Mutationsnr.</TER:MUTNRBEZ>
+				<TER:GRUBES>Katasterwert (06/2007) CHF 1'944'000
+Inkraftsetzung 02.05.1950
+Wohn- und Geschäftshaus 111.0737, Morgartenstrasse 6, 6007 Luzern, Versicherungswert (06/2009) CHF 1'128'000
+übrige befestigte Fläche [16 m²]</TER:GRUBES>
+				<TER:GRUDETAIL>
+					<TER:BESCHRIEB/>
+					<TER:KATASTER>CHF 1'944'000</TER:KATASTER>
+					<TER:INKR_DATUM>02.05.1950</TER:INKR_DATUM>
+					<TER:KULTURARTEN>
+						<TER:ART>Gebäude</TER:ART>
+						<TER:ART>übrige befestigte Fläche</TER:ART>
+					</TER:KULTURARTEN>
+					<TER:GEBAEUDE>
+						<TER:DETAIL>
+							<TER:GEBAEUDENR>111.0737</TER:GEBAEUDENR>
+							<TER:GEBAEUDEID>2453</TER:GEBAEUDEID>
+							<TER:GEBAEUDEBEZEICHNUNG>Wohn- und Geschäftshaus</TER:GEBAEUDEBEZEICHNUNG>
+							<TER:GEBAEUDESTRASSE>Morgartenstrasse 6</TER:GEBAEUDESTRASSE>
+							<TER:GEBAEUDESTATUS>versichert</TER:GEBAEUDESTATUS>
+							<TER:DRITTEIG>false</TER:DRITTEIG>
+							<TER:ZUSGRUNDSTUECKE/>
+							<TER:VERSWERT>1128000</TER:VERSWERT>
+							<TER:WAEHRUNG>CHF</TER:WAEHRUNG>
+							<TER:VERSDAT>2009-06-19</TER:VERSDAT>
+						</TER:DETAIL>
+					</TER:GEBAEUDE>
+				</TER:GRUDETAIL>
+				<TER:FLURPLAN>Plan Nr. 408, Hirschmatt</TER:FLURPLAN>
+			</TER:INHOCC>
+			<TER:INHOCC>
+				<TER:MUTID1>AVGB</TER:MUTID1>
+				<TER:MUTID2>300208</TER:MUTID2>
+				<TER:ST>RR</TER:ST>
+				<TER:MNR>     5L</TER:MNR>
+				<TER:FLAE>240 m²</TER:FLAE>
+				<TER:MUTNRBEZ>Mutationsnr.</TER:MUTNRBEZ>
+				<TER:GRUBES>Inkraftsetzung 01.06.1998</TER:GRUBES>
+				<TER:GRUDETAIL>
+					<TER:BESCHRIEB/>
+					<TER:KATASTER>CHF 2'904'000</TER:KATASTER>
+					<TER:INKR_DATUM>01.06.1998</TER:INKR_DATUM>
+					<TER:KULTURARTEN>
+</TER:KULTURARTEN>
+					<TER:GEBAEUDE>
+						<TER:DETAIL>
+							<TER:GEBAEUDENR>111.0737</TER:GEBAEUDENR>
+							<TER:GEBAEUDEID>2453</TER:GEBAEUDEID>
+							<TER:GEBAEUDEBEZEICHNUNG>Wohn- und Geschäftshaus</TER:GEBAEUDEBEZEICHNUNG>
+							<TER:GEBAEUDESTRASSE>Morgartenstrasse 6</TER:GEBAEUDESTRASSE>
+							<TER:GEBAEUDESTATUS>versichert</TER:GEBAEUDESTATUS>
+							<TER:DRITTEIG>false</TER:DRITTEIG>
+							<TER:ZUSGRUNDSTUECKE/>
+							<TER:VERSWERT>2728000</TER:VERSWERT>
+							<TER:WAEHRUNG>CHF</TER:WAEHRUNG>
+							<TER:VERSDAT>2009-06-19</TER:VERSDAT>
+						</TER:DETAIL>
+					</TER:GEBAEUDE>
+				</TER:GRUDETAIL>
+				<TER:FLURPLAN/>
+			</TER:INHOCC>
+			<TER:URSP/>
+			<TER:SUBJ>
+				<TER:LU2015DUPRECHTAUSZUG>test</TER:LU2015DUPRECHTAUSZUG>
+				<TER:SUBJOCC>
+					<TER:LST_ID>  190026</TER:LST_ID>
+					<TER:ESTA_NR>444L</TER:ESTA_NR>
+					<TER:ERIDAT/>
+					<TER:EREID_FOR_KSA>CH6841209575076</TER:EREID_FOR_KSA>
+					<TER:ST>R</TER:ST>
+					<TER:GRUNDST>
+						<TER:ST>R</TER:ST>
+						<TER:ST_EIG>R</TER:ST_EIG>
+						<TER:GRGB>111</TER:GRGB>
+						<TER:GRID>#        152</TER:GRID>
+						<TER:GRART>1</TER:GRART>
+						<TER:EGRID_FOR_KSA>CH673588805015</TER:EGRID_FOR_KSA>
+						<TER:GRGBTXT>Luzern linkes Ufer</TER:GRGBTXT>
+						<TER:GRIDTXT>152 (144, 145, 146, 147, 148, 149, 150, 151)</TER:GRIDTXT>
+						<TER:GRIDT>152</TER:GRIDT>
+					</TER:GRUNDST>
+					<TER:SUBJTYP>S</TER:SUBJTYP>
+					<TER:SUBJTXT>subjektiv-dingliches Miteigentum an</TER:SUBJTXT>
+					<TER:SUBJANT/>
+					<TER:BEL>
+</TER:BEL>
+				</TER:SUBJOCC>
+			</TER:SUBJ>
+			<TER:BEL>
+				<TER:BELOCC>
+					<TER:ST>R</TER:ST>
+					<TER:DTX>0999-01-02</TER:DTX>
+					<TER:DT>02.01.0999</TER:DT>
+					<TER:NR>     5L</TER:NR>
+					<TER:NRT>5L</TER:NRT>
+					<TER:TXT/>
+				</TER:BELOCC>
+				<TER:BELOCC>
+					<TER:ST>R</TER:ST>
+					<TER:DTX>2014-11-12</TER:DTX>
+					<TER:DT>12.11.2014</TER:DT>
+					<TER:NR> 1369LU</TER:NR>
+					<TER:NRT>1369LU</TER:NRT>
+					<TER:TXT/>
+				</TER:BELOCC>
+			</TER:BEL>
+		</TER:GRU>
+		<TER:DBK>
+			<TER:LU2015DUPRECHTAUSZUG/>
+			<TER:LROCC>
+				<TER:LRID1>   7383L</TER:LRID1>
+				<TER:LRID2>UEB</TER:LRID2>
+				<TER:LRIDTXT>   7383L.UEB</TER:LRIDTXT>
+				<TER:LUSORT>000000000000Z007383L</TER:LUSORT>
+				<TER:EREID_FOR_KSA>CH684160574979</TER:EREID_FOR_KSA>
+				<TER:ST>R</TER:ST>
+				<TER:INHOCC>
+					<TER:ST>R</TER:ST>
+					<TER:MDT>1000-01-01</TER:MDT>
+					<TER:MNR>   503L</TER:MNR>
+					<TER:LRINH>Fahrrecht</TER:LRINH>
+					<TER:LRINH1>Fahrrecht</TER:LRINH1>
+					<TER:LRINH2/>
+					<TER:LRINH3/>
+					<TER:LRINH4/>
+					<TER:ERIDAT/>
+					<TER:BETR/>
+					<TER:BETRW/>
+				</TER:INHOCC>
+				<TER:LRLR>Recht:</TER:LRLR>
+				<TER:BEZ>
+					<TER:BEZOCC>
+						<TER:ST>R</TER:ST>
+						<TER:GROL>S</TER:GROL>
+						<TER:GDTX>1000-01-01</TER:GDTX>
+						<TER:GNR>   503L</TER:GNR>
+						<TER:LNR/>
+						<TER:GRUNDST>
+							<TER:ST>R</TER:ST>
+							<TER:ST_EIG>R</TER:ST_EIG>
+							<TER:GRGB>111</TER:GRGB>
+							<TER:GRID>#        151</TER:GRID>
+							<TER:GRART>1</TER:GRART>
+							<TER:EGRID_FOR_KSA>CH568850358019</TER:EGRID_FOR_KSA>
+							<TER:GRGBTXT>Luzern linkes Ufer</TER:GRGBTXT>
+							<TER:GRIDTXT>151</TER:GRIDTXT>
+							<TER:GRIDT>151</TER:GRIDT>
+						</TER:GRUNDST>
+					</TER:BEZOCC>
+				</TER:BEZ>
+				<TER:RELHIST>
+					<TER:BEZ>
+</TER:BEZ>
+				</TER:RELHIST>
+				<TER:BEL>
+					<TER:BELOCC>
+						<TER:ST>R</TER:ST>
+						<TER:DTX>0099-01-10</TER:DTX>
+						<TER:DT/>
+						<TER:NR>BH~                   150~004~   7383L~UEB~D</TER:NR>
+						<TER:NRT>BH 150</TER:NRT>
+						<TER:TXT/>
+					</TER:BELOCC>
+					<TER:BELOCC>
+						<TER:ST>R</TER:ST>
+						<TER:DTX>1000-01-01</TER:DTX>
+						<TER:DT/>
+						<TER:NR>   503L</TER:NR>
+						<TER:NRT>503L</TER:NRT>
+						<TER:TXT/>
+					</TER:BELOCC>
+				</TER:BEL>
+			</TER:LROCC>
+			<TER:LROCC>
+				<TER:LRID1>   7385L</TER:LRID1>
+				<TER:LRID2>UEB</TER:LRID2>
+				<TER:LRIDTXT>   7385L.UEB</TER:LRIDTXT>
+				<TER:LUSORT>000000000000Z007385L</TER:LUSORT>
+				<TER:EREID_FOR_KSA>CH684160579479</TER:EREID_FOR_KSA>
+				<TER:ST>R</TER:ST>
+				<TER:INHOCC>
+					<TER:ST>R</TER:ST>
+					<TER:MDT>1000-01-01</TER:MDT>
+					<TER:MNR>   503L</TER:MNR>
+					<TER:LRINH>Fahrrecht</TER:LRINH>
+					<TER:LRINH1>Fahrrecht</TER:LRINH1>
+					<TER:LRINH2/>
+					<TER:LRINH3/>
+					<TER:LRINH4/>
+					<TER:ERIDAT/>
+					<TER:BETR/>
+					<TER:BETRW/>
+				</TER:INHOCC>
+				<TER:LRLR>Recht:</TER:LRLR>
+				<TER:BEZ>
+					<TER:BEZOCC>
+						<TER:ST>R</TER:ST>
+						<TER:GROL>S</TER:GROL>
+						<TER:GDTX>1000-01-01</TER:GDTX>
+						<TER:GNR>   503L</TER:GNR>
+						<TER:LNR/>
+						<TER:GRUNDST>
+							<TER:ST>R</TER:ST>
+							<TER:ST_EIG>R</TER:ST_EIG>
+							<TER:GRGB>111</TER:GRGB>
+							<TER:GRID>#        147</TER:GRID>
+							<TER:GRART>1</TER:GRART>
+							<TER:EGRID_FOR_KSA>CH528880503573</TER:EGRID_FOR_KSA>
+							<TER:GRGBTXT>Luzern linkes Ufer</TER:GRGBTXT>
+							<TER:GRIDTXT>147</TER:GRIDTXT>
+							<TER:GRIDT>147</TER:GRIDT>
+						</TER:GRUNDST>
+					</TER:BEZOCC>
+				</TER:BEZ>
+				<TER:RELHIST>
+					<TER:BEZ>
+</TER:BEZ>
+				</TER:RELHIST>
+				<TER:BEL>
+					<TER:BELOCC>
+						<TER:ST>R</TER:ST>
+						<TER:DTX>1000-01-01</TER:DTX>
+						<TER:DT/>
+						<TER:NR>   503L</TER:NR>
+						<TER:NRT>503L</TER:NRT>
+						<TER:TXT/>
+					</TER:BELOCC>
+				</TER:BEL>
+			</TER:LROCC>
+			<TER:LROCC>
+				<TER:LRID1>   7387L</TER:LRID1>
+				<TER:LRID2>UEB</TER:LRID2>
+				<TER:LRIDTXT>   7387L.UEB</TER:LRIDTXT>
+				<TER:LUSORT>000000000000Z007387L</TER:LUSORT>
+				<TER:EREID_FOR_KSA>CH6841125331669</TER:EREID_FOR_KSA>
+				<TER:ST>R</TER:ST>
+				<TER:INHOCC>
+					<TER:ST>R</TER:ST>
+					<TER:MDT>1000-01-01</TER:MDT>
+					<TER:MNR>   503L</TER:MNR>
+					<TER:LRINH>Nutzungsbeschränkung</TER:LRINH>
+					<TER:LRINH1>Nutzungsbeschränkung</TER:LRINH1>
+					<TER:LRINH2/>
+					<TER:LRINH3/>
+					<TER:LRINH4/>
+					<TER:ERIDAT/>
+					<TER:BETR/>
+					<TER:BETRW/>
+				</TER:INHOCC>
+				<TER:LRLR>Recht:</TER:LRLR>
+				<TER:BEZ>
+					<TER:BEZOCC>
+						<TER:ST>R</TER:ST>
+						<TER:GROL>S</TER:GROL>
+						<TER:GDTX>1000-01-01</TER:GDTX>
+						<TER:GNR>   503L</TER:GNR>
+						<TER:LNR/>
+						<TER:GRUNDST>
+							<TER:ST>R</TER:ST>
+							<TER:ST_EIG>R</TER:ST_EIG>
+							<TER:GRGB>111</TER:GRGB>
+							<TER:GRID>#        143</TER:GRID>
+							<TER:GRART>1</TER:GRART>
+							<TER:EGRID_FOR_KSA>CH588050358865</TER:EGRID_FOR_KSA>
+							<TER:GRGBTXT>Luzern linkes Ufer</TER:GRGBTXT>
+							<TER:GRIDTXT>143</TER:GRIDTXT>
+							<TER:GRIDT>143</TER:GRIDT>
+						</TER:GRUNDST>
+					</TER:BEZOCC>
+				</TER:BEZ>
+				<TER:RELHIST>
+					<TER:BEZ>
+</TER:BEZ>
+				</TER:RELHIST>
+				<TER:BEL>
+					<TER:BELOCC>
+						<TER:ST>R</TER:ST>
+						<TER:DTX>0099-01-10</TER:DTX>
+						<TER:DT/>
+						<TER:NR>BH~                   142~004~   7387L~UEB~D</TER:NR>
+						<TER:NRT>BH 142</TER:NRT>
+						<TER:TXT/>
+					</TER:BELOCC>
+					<TER:BELOCC>
+						<TER:ST>R</TER:ST>
+						<TER:DTX>1000-01-01</TER:DTX>
+						<TER:DT/>
+						<TER:NR>   503L</TER:NR>
+						<TER:NRT>503L</TER:NRT>
+						<TER:TXT/>
+					</TER:BELOCC>
+					<TER:BELOCC>
+						<TER:ST>R</TER:ST>
+						<TER:DTX>1996-07-11</TER:DTX>
+						<TER:DT>11.07.1996</TER:DT>
+						<TER:NR> 1315LU</TER:NR>
+						<TER:NRT>1315LU</TER:NRT>
+						<TER:TXT/>
+					</TER:BELOCC>
+				</TER:BEL>
+			</TER:LROCC>
+			<TER:LROCC>
+				<TER:LRID1>  23835L</TER:LRID1>
+				<TER:LRID2>UEB</TER:LRID2>
+				<TER:LRIDTXT>  23835L.UEB</TER:LRIDTXT>
+				<TER:LUSORT>194204290000Z023835L</TER:LUSORT>
+				<TER:EREID_FOR_KSA>CH684126904877</TER:EREID_FOR_KSA>
+				<TER:ST>R</TER:ST>
+				<TER:INHOCC>
+					<TER:ST>R</TER:ST>
+					<TER:MDT>1000-01-01</TER:MDT>
+					<TER:MNR>   502L</TER:MNR>
+					<TER:LRINH>Bestandesrecht für Stilllegung des Hotel-, Pensions- und Restaurations-Betriebes</TER:LRINH>
+					<TER:LRINH1/>
+					<TER:LRINH2>Bestandesrecht für Stilllegung des Hotel-, Pensions- und Restaurations-Betriebes</TER:LRINH2>
+					<TER:LRINH3/>
+					<TER:LRINH4/>
+					<TER:ERIDAT>29.04.1942</TER:ERIDAT>
+					<TER:BETR/>
+					<TER:BETRW/>
+				</TER:INHOCC>
+				<TER:LRLR>Last:</TER:LRLR>
+				<TER:BEZ>
+					<TER:BEZOCC>
+						<TER:ST>R</TER:ST>
+						<TER:GROL>D</TER:GROL>
+						<TER:GDTX>1000-01-01</TER:GDTX>
+						<TER:GNR>   502L</TER:GNR>
+						<TER:LNR/>
+						<TER:PERSON>
+							<TER:ID>30149283</TER:ID>
+							<TER:NEST-PID/>
+							<TER:NIV>0</TER:NIV>
+							<TER:INHOCC>
+								<TER:ST>R</TER:ST>
+								<TER:TYP>J</TER:TYP>
+								<TER:NAME>Zentrum für berufliche Weiterbildung ZbW</TER:NAME>
+								<TER:VORNAME/>
+								<TER:RUFNAME/>
+								<TER:RFORM>14</TER:RFORM>
+								<TER:RFORMTXT>Aktiengesellschaft</TER:RFORMTXT>
+								<TER:SITZ>Schlieren</TER:SITZ>
+								<TER:HREG/>
+								<TER:GESCHLCODE/>
+							</TER:INHOCC>
+							<TER:STRASSE>Gaiserwaldstrasse 6a</TER:STRASSE>
+							<TER:LAND>CH</TER:LAND>
+							<TER:LANDTXT>Schweiz</TER:LANDTXT>
+							<TER:PLZ>9015</TER:PLZ>
+							<TER:ORT>St. Gallen</TER:ORT>
+							<TER:GESCHLCODE/>
+							<TER:AHVNR/>
+							<TER:BERUF/>
+							<TER:BORT/>
+							<TER:ANREDE/>
+							<TER:ZUSATZ/>
+							<TER:NORH/>
+							<TER:A1/>
+							<TER:A2/>
+							<TER:A3/>
+							<TER:A4/>
+							<TER:ADRZUS1/>
+							<TER:ADRZUS2/>
+							<TER:ADRZUS3/>
+							<TER:ADRZUS4/>
+							<TER:ADRZUS5/>
+						</TER:PERSON>
+					</TER:BEZOCC>
+				</TER:BEZ>
+				<TER:RELHIST>
+					<TER:BEZ>
+</TER:BEZ>
+				</TER:RELHIST>
+				<TER:BEL>
+					<TER:BELOCC>
+						<TER:ST>R</TER:ST>
+						<TER:DTX>1000-01-01</TER:DTX>
+						<TER:DT/>
+						<TER:NR>   502L</TER:NR>
+						<TER:NRT>502L</TER:NRT>
+						<TER:TXT/>
+					</TER:BELOCC>
+					<TER:BELOCC>
+						<TER:ST>R</TER:ST>
+						<TER:DTX>1942-04-29</TER:DTX>
+						<TER:DT>29.04.1942</TER:DT>
+						<TER:NR>  140LU</TER:NR>
+						<TER:NRT>140LU</TER:NRT>
+						<TER:TXT/>
+					</TER:BELOCC>
+				</TER:BEL>
+			</TER:LROCC>
+		</TER:DBK>
+	</TER:AUSZUG>
+	<TER:PROVTXT/>
+	<TER:UNTTXT/>
+	<TER:UNTWEB/>
+</TER:AUSZUEGE>
