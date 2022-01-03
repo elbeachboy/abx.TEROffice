@@ -5,6 +5,7 @@ Im App.config sind diese drei Einträge unter folgenden Namen zu finden:
   2. WordTemplatePath
   3. WordOutputPath
 
+Zusätzlich dazu, muss im oberen Teil die Ablage für das Logfile angepasst werden.
 
 Ihr müsst nur den Teil "E:\Apps\Diplomarbeit" ersetzen damit es für euch stimmt.
 
