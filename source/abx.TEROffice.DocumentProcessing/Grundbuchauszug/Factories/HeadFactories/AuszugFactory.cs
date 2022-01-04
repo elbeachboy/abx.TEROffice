@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-using abx.TEROffice.DataReader.Businessmodel.Dienstbarkeiten;
-using abx.TEROffice.DocumentProcessing.Grundbuchauszug.Factories.Interfaces;
+﻿using abx.TEROffice.DocumentProcessing.Grundbuchauszug.Factories.Interfaces;
 using abx.TEROffice.DocumentProcessing.Grundbuchauszug.Factories.Products;
 using DocumentFormat.OpenXml.Packaging;
 

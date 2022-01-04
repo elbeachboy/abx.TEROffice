@@ -3,12 +3,12 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Text.RegularExpressions;
-using abx.TEROffice.DataReader.Businessmodel.Dienstbarkeiten;
 using abx.TEROffice.Shared.Exceptionhandling;
 using abx.TEROffice.DocumentProcessing.Grundbuchauszug.Textbausteine.Interfaces;
 using abx.TEROffice.DocumentProcessing.Helper;
 using DocumentFormat.OpenXml;
 using DocumentFormat.OpenXml.Wordprocessing;
+using abx.TEROffice.DataReader.Businessmodel.Dienstbarkeiten;
 
 namespace abx.TEROffice.DocumentProcessing.Grundbuchauszug.Textbausteine.Shared
 {

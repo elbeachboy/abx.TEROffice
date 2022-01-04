@@ -1,23 +1,17 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Diagnostics;
-using System.IO;
 using System.Windows.Forms;
-using abx.TEROffice.DataReader.Interface;
 using abx.TEROffice.Shared.Exceptionhandling;
+using abx.TEROffice.Main;
+using abx.TEROffice.WordGenerator.Interfaces;
+using abx.TEROffice.DocumentProcessing.Strategies.Interfaces;
 using abx.TEROffice.DocumentProcessing.Grundbuchauszug.Factories.Interfaces;
 using abx.TEROffice.DocumentProcessing.Helper;
 using abx.TEROffice.DocumentProcessing.Strategies;
-using abx.TEROffice.DocumentProcessing.Strategies.Interfaces;
-using abx.TEROffice.Main;
-using abx.TEROffice.WordGenerator;
-using abx.TEROffice.WordGenerator.Interfaces;
-using abx.TEROffice.WordGenerator.Strategies;
-using DocumentFormat.OpenXml.Packaging;
+using abx.TEROffice.DataReader.Interface;
 
 namespace abx.TEROffice.Manager
 {
-    public partial class MainForm : Form
+  public partial class MainForm : Form
     {
         private readonly log4net.ILog _logger = log4net.LogManager.GetLogger(typeof(MainForm));
         private readonly IWordGeneratorContext _wordGeneratorContext;
