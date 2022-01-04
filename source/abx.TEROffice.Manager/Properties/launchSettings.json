@@ -1,6 +1,6 @@
 {
   "profiles": {
-    "abx.TEROffice.Main": {
+    "abx.TERoffice.Manager": {
       "commandName": "Project",
       "commandLineArgs": "LUAuszug msg_5216083_2021-10-06-11-40-40.xml Auszug msg_5216083_2021-10-06-11-40-40.docx 0000101001110"
     }
